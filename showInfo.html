@@ -17,9 +17,17 @@
             document.writeln(localStorage.getItem("productQty"));
 
         }
+        function ClearData() {
+            localStorage.clear();
+        }
     </script>
 </head>
-<body onload="RetrieveProductData()">
+<body>
+    <form>
+        <input type="submit" value="Clear" onclick="ClearData()">
+        <input type="submit" value="show" onclick="RetrieveProductData()">
+
+    </form>
     
 </body>
 </html>

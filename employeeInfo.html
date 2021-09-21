@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function saveData() {
+            var id=parseInt(document.getElementById("empid").value);
+            var name=document.getElementById("empname").value;
+            var deptno=parseInt(document.getElementById("dno").value);
+            var sal=parseInt(document.getElementById("sal").value);
+
+            sessionStorage.setItem("employeeid",id);
+            sessionStorage.setItem("employeename",name);
+            sessionStorage.setItem("employeedeptno",deptno);
+            sessionStorage.setItem("sal",sal);
+            
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <form>
+           <fieldset>
+               <legend>Employee Info</legend>
+            <label>Enter Emp ID</label>
+            <input type="number" id="empid" min="1" required />
+            <br/>
+            <label>Enter Emp Name</label>
+            <input type="text" id="empname" minlength="1" maxlength="20" required />
+            <br/>
+            <label>Enter Deptno</label>
+            <input type="number" id="dno" min="1"  required />
+            <br/>
+            <label>Enter emp Sal</label>
+            <input type="number" id="sal" min="1"  />
+            <br/>
+            <label>Enter Joining Date</label>
+            <input type="datetime-local" id="joindate" required />
+            <br/>
+            <label>Enter Manager ID</label>
+            <input type="number" id="mgrid"/>
+            <br/>
+    <input  type="submit" value="Submit" id="s1" onclick="saveData()"/>
+    <input type="reset" value="New Product" id="np" />
+    <a href="showempinfo.html">Show Data</a>
+            
+    
+    </fieldset>
+    
+        </form>
+    </table> 
+</body>
+</html>
