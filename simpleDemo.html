@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function doAddition()
+        {
+
+var i=parseInt(document.getElementById("fno").value);
+var j=parseInt(document.getElementById("sno").value);
+var k=i+j;
+console.log(i);
+console.log(j);
+//document.getElementById("ans").value=k.toString();
+//document.write(k.toString());
+console.log(k);
+
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <label for="fno">Enter First Number</label>
+        <input type="number" name="fno" id="fno">
+        <br/>
+        <label for="sno">Enter Second Number</label>
+        <input type="number" name="sno" id="sno">
+        <br/>
+        <input type="button" value="Add" onclick="doAddition()"/>
+        <br/>
+        <label for="ans">Answer= </label>
+        <input type="text" name="ans" id="ans">
+    </form>
+</body>
+</html>
