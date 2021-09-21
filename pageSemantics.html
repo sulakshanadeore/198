@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function displayDate() {
+         
+var dt1=new Date();
+var d=dt1.getDate() + "/" + dt1.getMonth() + "/"  + dt1.getFullYear();
+
+            document.getElementById("dt").textContent=d.toString();
+        }
+        
+    </script>
+</head>
+<body onload="displayDate()">
+    
+<header>
+    <h1>Mphasis Academy Page</h1>
+</header>
+<section id="Testing">
+    <article>
+        <p>contents are :</p>
+        <ol>
+        <li>1.Module 1 </li>
+        <li>2.Module 2</li>
+
+    </ol>
+        <figure>
+            <img src="Assets/birthday.jpg"/>
+            <figcaption>Birthday Celebrations</figcaption>
+        </figure>
+        <aside><p>This is a paragraph aside to current content</p></aside>
+    </article>
+</section>
+<section id="Dotnet">
+    <article>
+        <p>contents are :</p>
+        <ol>
+        <li>1.Module 1 </li>
+        <li>2.Module 2</li>
+
+    </ol>
+        <figure>
+            <img src="Assets/place-watermark.jpg" height="40px" width="60px"/>
+            <figcaption>Outings Celebrations</figcaption>
+        </figure>
+        
+    </article>
+</section>
+<footer>
+    <p>Footer/p>
+    <p id="dt">getDate()</p>
+    
+
+</footer>
+
+    <!-- <div id="heading">
+        logo etc
+    </div>
+<div id="main">
+    <div>
+        <img />
+    </div>
+content
+    <p>
+      HTML Semantics----Standardization of html tags/elements.
+
+    </p>
+</div>
+    <div id="footer">
+        footer
+    </div> -->
+
+
+</body>
+</html>
