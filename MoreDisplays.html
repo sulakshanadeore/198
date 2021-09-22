@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+span#myspan
+{
+    background-color: red;
+    display: inline-block;
+    height: 200px;
+    width: 100px;
+    
+
+}
+span#s1
+{
+    background-color: green;
+    display:inline-flexbox;
+    height: 200px;
+    width: 100px;
+    
+}
+span#grid1
+{
+    background-color: yellow;
+    display:inline-grid;
+    height: 200px;
+    width: 100px;
+    float:left
+
+}
+
+#p1
+{
+    display: inline-block;
+    height: 200px;
+    width: 100px;
+}
+#p2
+{
+    display:inline-flexbox;
+    height: 200px;
+    width: 100px;
+}
+#p3
+{
+    display:inline-grid;
+    height: 200px;
+    width: 100px;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <div>
+<p style="background-color: green;">Thsi is block level<p>This is child para</p> by default</p>
+</div>
+<br/>
+<div>
+<p style="background-color: green;" id="p1">Thsi is block level<p>This is child para</p> by default</p>
+</div>
+<br/>
+<div>
+<p style="background-color: green;" id="p2">Thsi is block level<p>This is child para</p> by default</p>
+</div>
+<br/>
+<div>
+<p style="background-color: green;" id="p3">Thsi is block level<p>This is child para</p> by default</p>
+</div>
+<br/>
+<hr/>
+    <span>A span elemnet <span  id="myspan">Another span More Content</span>Outer span</span>
+
+    <br/>
+    <br/>
+
+    <span>A span elemnet <span id="s1">Another span</span>Outer span</span>
+<br/>
+<br/>
+    <span>A span elemnet <span id="grid1">Another span More content</span>Outer span</span>
+</body>
+</html>

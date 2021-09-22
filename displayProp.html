@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         p{color: violet;
+            
+        }
+        p.disNone
+        {
+            display: none;
+        }
+        p.disInline
+        {
+            display: inline;
+        }
+        p.disBlock
+        {
+            display: block;
+        }
+        p.disInB
+        {
+            display: inline-block;
+        }
+       
+        p.disFlex
+        {
+            background-color: springgreen;
+            display:inline-flex;
+            height: 50px;
+        width: 200px;
+        padding: 10px;
+        float: left;
+        }
+
+        p.inGrid
+        {
+            background-color: brown;
+            display:grid;
+            height: 50px;
+            
+            position: relative;
+            padding: 10px;
+        width: 200px;
+
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p style="background-color: red;" class="disNone">This is paragraph This is not displayed</p>
+    </div>
+
+    <div>
+        <p  class="inGrid">This is paragraph This 
+            
+            is flex flexible</p>
+    </div>
+<br/>
+
+    <div>
+        <p  class="disFlex">This is paragraph This 
+            
+                is flex flexible</p>
+    </div>
+<br/>
+    <div>
+        <p style="background-color: blue;height: 5px;width: 10px;" class="disInline">This is paragraph inline</p>
+    </div>
+    <div>
+        <p  style="background-color: yellow" class="disBlock">This is paragraph block</p>
+    </div>
+    <div>
+        <p style="background-color: green;height: 5px;width: 10px;" class="disInB">This is paragraph inline block</p>
+    </div>
+
+</body>
+</html>
