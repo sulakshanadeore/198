@@ -12,6 +12,11 @@
         //    var e=document.getElementById("planname");
         //   var r= e.options[e.selectedIndex].value;
         //   alert(r);
+
+        }
+
+        function f1() {
+            document.getElementById("t1").value=document.getElementById("p").value;
         }
     </script>
 </head>
@@ -27,8 +32,11 @@
         <fieldset>
         <label>Select P</label>
         <label for="p"></label>
-        <input type="range" id="p" name="p" value="300000" min="300000" max="10000000"/> 
+        <input type="range" id="p" name="p" value="" min="300000" step="100000" max="10000000" oninput="f1()"/> 
+        <input  type="text" id="t1" disabled/>
+
         <br/>
+
         <label>Select N</label>
         <input type="range" id="n" value="15"/> 
         <br/>
@@ -37,7 +45,11 @@
         =
         <label>Interest (Rs).  </label>
         <output name="res"  for="p n r"></output>
+
+
+        <!-- <input type="number" name="" id="" min="10" step="5" max="100"> -->
     </fieldset>
     </form>
+
 </body>
 </html>
