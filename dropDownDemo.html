@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function show() {
+            alert(document.querySelector("#planname").value);
+        //    var e=document.getElementById("planname");
+        //   var r= e.options[e.selectedIndex].value;
+        //   alert(r);
+        }
+    </script>
+</head>
+<body>
+    <label>Select value</label>
+    <select name="planname" id="planname" onchange="show()">
+    <option value="Plan 199">199</option>
+    <option value="Plan 299">299</option>
+    <option value="Plan 399">399</option>
+    </select>
+    <br/>
+    <form oninput="res.value=((parseInt(p.value) * parseInt(n.value) *  parseInt(r.value))/100)">
+        <fieldset>
+        <label>Select P</label>
+        <label for="p"></label>
+        <input type="range" id="p" name="p" value="300000" min="300000" max="10000000"/> 
+        <br/>
+        <label>Select N</label>
+        <input type="range" id="n" value="15"/> 
+        <br/>
+        <label>Select R</label>
+        <input type="range" id="r" value="10"/>
+        =
+        <label>Interest (Rs).  </label>
+        <output name="res"  for="p n r"></output>
+    </fieldset>
+    </form>
+</body>
+</html>
