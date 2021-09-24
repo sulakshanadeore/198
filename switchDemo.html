@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="enterdate"></label>
+        <input type="date" name="enterdate" id="enterdate">
+        <input type="button" onclick="f1()" value="Show"/>
+<input type="text" name="" id="dayname">
+    </form>
+    <script>
+        function f1() {
+            var d=document.getElementById("enterdate").value;
+            var d1=new Date(d);
+               var dy;
+
+               //new Date().getDay()
+            switch (d1.getDay()+1){
+                case 1:
+                   dy="Sunday" ;
+                    break;
+            
+                    case 2:
+                   dy="monday" ;
+                    break;
+                    case 3:
+                   dy="tuesday" ;
+                    break;
+                    case 4:
+                   dy="wednesday" ;
+                    break;
+                    case 5: 
+                    dy="Thurs";
+                    break;
+                    case 6: 
+                    dy="Friday";
+                    break;
+                    case 7: 
+                    dy="sat";
+                    break;
+
+                default:
+                    break;
+            }
+            document.getElementById("dayname").value=dy;
+
+        }
+    </script>
+    
+</body>
+</html>
