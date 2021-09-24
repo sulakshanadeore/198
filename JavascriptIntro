@@ -1,0 +1,49 @@
+Javascript is client side scripting language.
+
+Whenever html , top to bottom & left to right.
+
+Browser uses interpreter for html.
+Browser uses compiler for javascript.
+
+Where to add Javascript?
+<script> in the head section of the html page.
+It can also be in the body of the html page.
+
+Javascript---- downloaded in the  browser.
+
+          server-----accepts the request
+	  client(Browser)----sends the request
+		server
+Request--- Response
+     client
+
+Response is sent to the client from the server.
+
+client-----server
+       demands for the web page from the server
+so, client---- GET the page
+the client fills the data.
+and clicks the button(submit) -----POST the data to the server.
+
+when the data is posted to the server, the data is processed by the server.--- server side programming.
+		
+
+
+processing is done on the client machine (browser)---- browser has a javascript engine-----processing the code----- client side scripting.
+
+Advantages of Javascript- client side scripting
+1) saves the trip to the server, reduces network traffic.
+2) saves the processor time of the server.
+3) result is quick, performance improvement.
+
+Uses:
+1)Processing of simple logic, like validations
+2)Operations on the client side, ie u want to save some data on the client,creating cookies and storing data, local storage, session storage,web workers(multi-threading) etc.
+
+
+
+
+BOM-- loaded in the BOM
+DOM---- document-----html dom
+
+
