@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <form>
+ <p id="p1"></p>   
+ <p id="p2"></p>   
+ <input type="button" onclick="f1()" value="showData"/>
+
+</form>
+<script>
+    function f1()
+    {
+    let data='{"employees":[' +
+    '{"empid":"1","firstname":"Akshaya","lastname":"A"},' +
+    '{"empid":"2","firstname":"Zia","lastname":"R"},' +
+    '{"empid":"3","firstname":"Kajol","lastname":"S"}]}';
+
+        
+ 
+    var objdata=new Array(3);
+    objdata=JSON.parse(data);
+    
+
+
+    document.getElementById("p1").innerHTML=objdata.employees[1].empid;
+    document.getElementById("p2").innerHTML=objdata.employees[1].firstname;
+    }
+          
+        </script>
+</body>
+</html>
