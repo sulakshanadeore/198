@@ -1,0 +1,38 @@
+<!-- CDN---- Content Delivery Network -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    .pcolor
+    {
+        color: blue;
+        font-size: larger;
+        font-family: Lucida Handwriting;
+    }
+</style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+    crossorigin="anonymous"></script>
+    <script>
+$(document).ready(
+function()
+{
+$("#p1").mousemove(function(){
+    alert("U clicked on the paragraph");
+    $("#p1").addClass("pcolor");
+});
+
+}
+
+
+);
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <p id="p1" >This is a paragraph</p>
+</body>
+</html>

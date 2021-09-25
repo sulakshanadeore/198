@@ -15,11 +15,33 @@
  <p id="p2"></p>   
  <p id="p3"></p>   
  <p id="p4"></p>   
- <input type="button" onclick="f1()" value="showData"/>
+ <input type="button" onclick="f1()" value="ConvertToJavaScriptObject"/>
+ <hr/>
+
+ <input type="button" onclick="ToJson()" value="ConvertToJson"/>
+ <p id="p5"></p>   
 
 </form>
 <script>
     
+function ToJson()
+{
+
+    // let data='{"employees":[' +
+    // '{"empid":11,"firstname":"akshaya","lastname":"A","bdate":"2001/01/05"},' +
+    // '{"empid":121,"firstname":"zia","lastname":"R","bdate":"2009/01/05"},' +
+    // '{"empid":3,"firstname":"kajol","lastname":"S","bdate":"2008/01/05"}]}';
+   
+ 
+    // var objdata=new Array(3);
+
+    // objdata=JSON.parse(data);
+    var objdata1=new Array(3);
+     objdata1=f1();
+
+      document.getElementById("p5").innerHTML=JSON.stringify(objdata1);
+}
+
     function f1()
     {
     let data='{"employees":[' +
@@ -60,7 +82,7 @@ objdata.employees.forEach((e) => {
     //   document.getElementById("p2").innerHTML= objdata.employees[0].empid + "  " + objdata.employees[0].firstname + " "  + objdata.employees[0].lastname;
       document.getElementById("p3").innerHTML= objdata.employees[1].empid + "  " + objdata.employees[1].firstname + " "  + objdata.employees[1].lastname;
     //   document.getElementById("p4").innerHTML= objdata.employees[2].empid + "  " + objdata.employees[2].firstname + " "  + objdata.employees[2].lastname;
-
+return objdata;
  
 }
         </script>
