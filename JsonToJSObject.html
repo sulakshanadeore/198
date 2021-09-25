@@ -13,25 +13,32 @@
  <br/>
  <hr/>
  <p id="p2"></p>   
+ <p id="p3"></p>   
+ <p id="p4"></p>   
  <input type="button" onclick="f1()" value="showData"/>
 
 </form>
 <script>
-    var names;
+    
     function f1()
     {
     let data='{"employees":[' +
-    '{"empid":"11","firstname":"akshaya","lastname":"A"},' +
-    '{"empid":"121","firstname":"zia","lastname":"R"},' +
-    '{"empid":"3","firstname":"kajol","lastname":"S"}]}';
+    '{"empid":11,"firstname":"akshaya","lastname":"A","bdate":"2001/01/05"},' +
+    '{"empid":121,"firstname":"zia","lastname":"R","bdate":"2009/01/05"},' +
+    '{"empid":3,"firstname":"kajol","lastname":"S","bdate":"2008/01/05"}]}';
    
  
     var objdata=new Array(3);
+
     objdata=JSON.parse(data);
     
+    // 1,2 | 1,3
+    // 2,3
+
+  
     objdata.employees.sort((a, b) => {
-    let fa = parseInt(a.empid),
-        fb = parseInt(b.empid);
+    let fa =Date.parse(a.bdate),
+        fb =Date.parse(b.bdate);
 
     if (fa > fb) {
         return 1;
@@ -46,10 +53,13 @@
     //  document.getElementById("p2").innerHTML=objdata.employees[1].firstname;
     
 objdata.employees.forEach((e) => {
-    document.getElementById("p1").innerHTML+= e.empid + " " + e.firstname + "  " +  e.lastname + "<br/>";
+    document.getElementById("p1").innerHTML+= e.empid + " " + e.firstname + "  " +  e.lastname +  " " + e.bdate + "<br/>";
 });
 
-      document.getElementById("p2").innerHTML= objdata.employees[1].empid + "  " + objdata.employees[1].firstname + " "  + objdata.employees[1].lastname;
+
+    //   document.getElementById("p2").innerHTML= objdata.employees[0].empid + "  " + objdata.employees[0].firstname + " "  + objdata.employees[0].lastname;
+      document.getElementById("p3").innerHTML= objdata.employees[1].empid + "  " + objdata.employees[1].firstname + " "  + objdata.employees[1].lastname;
+    //   document.getElementById("p4").innerHTML= objdata.employees[2].empid + "  " + objdata.employees[2].firstname + " "  + objdata.employees[2].lastname;
 
  
 }
