@@ -1,0 +1,26 @@
+el1,el2,el3	$("h1,div,p")	All <h1>, <div> and <p> elements
+ 	 	 
+:first	$("p:first")	The first <p> element
+:last	$("p:last")	The last <p> element
+:even	$("tr:even")	All even <tr> elements
+:odd	$("tr:odd")	All odd <tr> elements
+:gt(no)	$("ul li:gt(3)")	List elements with an index greater than 3
+:lt(no)	$("ul li:lt(3)")	List elements with an index less than 3
+
+
+ 	 	 
+:first-child	$("p:first-child")	All <p> elements that are the first child of their parent
+:first-of-type	$("p:first-of-type")	All <p> elements that are the first <p> element of their parent
+:last-child	$("p:last-child")	All <p> elements that are the last child of their parent
+:last-of-type	$("p:last-of-type")	All <p> elements that are the last <p> element of their parent
+:nth-child(n)	$("p:nth-child(2)")	All <p> elements that are the 2nd child of their parent
+:nth-last-child(n)	$("p:nth-last-child(2)")	All <p> elements that are the 2nd child of their parent, counting from the last child
+:nth-of-type(n)	$("p:nth-of-type(2)")	All <p> elements that are the 2nd <p> element of their parent
+:nth-last-of-type(n)	$("p:nth-last-of-type(2)")	All <p> elements that are the 2nd <p> element of their parent, counting from the last child
+:only-child	$("p:only-child")	All <p> elements that are the only child of their parent
+:only-of-type	$("p:only-of-type")	All <p> elements that are the only child, of its type, of their parent
+ 	 	 
+parent > child	$("div > p")	All <p> elements that are a direct child of a <div> element
+parent descendant	$("div p")	All <p> elements that are descendants of a <div> element
+element + next	$("div + p")	The <p> element that are next to each <div> elements
+element ~ siblings	$("div ~ p")	All <p> elements that appear after the <div> element
