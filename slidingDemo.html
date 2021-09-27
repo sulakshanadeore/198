@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1{
+width: 100px;
+height: 300px;
+background-color: blue;
+
+
+        }
+
+        #div2{
+width: 80px;
+height: 100px;
+background-color: red;
+
+        }
+        #div3{
+width: 80px;
+height: 100px;
+background-color: greenyellow;
+
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+    crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+$("#b1").click(function(){
+    $("p").slideUp("slow");
+});
+
+$("#b2").click(function(){
+    $("p").slideDown(3000);
+});
+
+$("#b3").click(function(){
+    $("p").slideToggle(5000);
+});
+
+// $("#b4").click(function(){
+// $("#p1").attr("contenteditable","true");
+// });
+
+        });
+
+    
+        </script>
+
+
+</head>
+<body>
+    <div id="div1">
+        <p>this is a parathis is a para
+            this is a parathis is a parathis is a parathis is a parathis is a para
+            this is a parathis is a parathis is a parathis is a para
+
+    </p>   </div>
+    <div id="div2"><p id="p1" >This content must be editable</p>   </div>
+    <div id="div3">   </div>
+    <button id="b1">Slide Up</button>
+    <button id="b2">Slide Down</button>
+    <button id="b3">Slide Toggle</button>
+    <button id="b4">content editable</button>
+
+    <p id="p1" contenteditable >This content must be editable</p>
+
+</body>
+</html>

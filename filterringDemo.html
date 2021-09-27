@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    div{
+        height:100px;
+        width:100px;
+        border:2px solid red;
+    }
+    .c1
+    {
+        background-color: indigo;
+    }
+</style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+    crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+$("#b1").click(function(){
+alert($("div").first().html());
+
+});
+
+$("#b2").click(function(){
+alert($("div").eq(0).html());//eq---index-- 
+
+});
+
+
+$("#b3").click(function(){
+    alert($("div").filter(".c1").text());
+});
+
+$("#b4").click(function(){
+alert($("div").last().html());
+
+});
+
+$("#b5").click(function(){
+    i=1;
+     $("div").each(function(){
+         if($(this).not(".c1").html()!=undefined)
+         {
+alert($(this).not(".c1").html());
+i+=1;}
+
+     });
+   
+        
+
+    });
+
+
+});
+
+
+    
+    </script>
+</head>
+<body>
+
+    <div id="div1">
+        <p>This is para</p>
+    </div>
+    <br/>
+    <div id="div2">
+        <img src="bunny1.jpg" height="100px" width="100px" />
+    </div><br/>
+    <div id="div3" class="c1">
+        <p>Another para.Its apllied a class style c1</p>
+    </div><br/>
+    <div id="div4">
+        <p>Thsi is also para</p>
+    </div><br/>
+<button id="b1">Div1- First Filter</button>
+<button id="b2">Div2-equal filter</button>
+<button id="b3" >Div3----filter</button>
+<button id="b4">Div4---last filter</button>
+<button id="b5">div 4-- Not Filter</button>
+
+</body>
+</html>
