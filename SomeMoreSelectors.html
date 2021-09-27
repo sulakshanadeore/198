@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+    crossorigin="anonymous"></script>
+    <script>
+$(document).ready(function(){
+$("#b1").click(function(){
+    $("h1,p,div").remove();
+
+});
+
+
+$("#f1").click(function(){
+$("tr:first").remove();
+
+});
+
+
+$("#l1").click(function(){
+$("tr:last").remove();
+
+});
+
+$("#e1").click(function(){
+$("tr:even").css("background-color","red");
+
+});
+
+$("#o1").click(function(){
+$("tr:odd").css("background-color","red");
+
+});
+
+//grthan
+$("#grthan").click(function(){
+    $("ol li:gt(2)").css("background-color","green");
+});
+
+
+$("#lessthan").click(function(){
+    $("ol li:lt(2)").css("background-color","purple");
+});
+
+$("#firstchild").click(function(){
+$("p:first-child").css("background-color","gold");
+
+});
+$("#lastchild").click(function(){
+    $("p:last-child").css("background-color","violet");
+
+});
+
+$("#nthchild").click(function(){
+    $("p:nth-child(3)").css("background-color","violet");
+
+});
+
+
+
+});
+    </script>
+</head>
+<body>
+    <button id="firstchild">First Child</button>
+    <button id="lastchild">Last Child</button>
+    <button id="nthchild">Nth Child</button>
+<div>
+    <p>This is first child</p>
+    <p>this is also child</p>
+    <p>this is last child</p>
+    </div>
+    <hr/>
+<form>
+    <p>This is  0p child of form </p>
+    <p>This is  1p child of form </p>
+    <p>This is  2p child of form </p>
+    <p>This is  3p child of form </p>
+    <p>This is  4p child of form </p>
+</form>
+
+
+    <hr/>
+    <button id="b1">Remove all h1,div &p</button>
+    <h1>
+Heading 1
+    </h1>
+    <h2>Heading 2 </h2>
+    <div>
+        <img src="bunny1.jpg" height="200px" width="300px"/>
+    </div>
+    <p>This is imag</p>
+    <hr/>
+
+    <button id="f1">Remove first</button>
+    <button id="l1">Remove last</button>
+    <button id="e1">Even rows</button>
+    <button id="o1">Odd rows</button>
+
+    <table border="2">
+        <tr>
+            <td>Hi</td>
+        </tr>
+        <tr>
+            <td>Hello</td>
+        </tr>
+        <tr>
+            <td>Welcome</td>
+        </tr>
+        <tr>
+            <td>Bye</td>
+        </tr>
+
+    </table>
+    <hr/>
+    <button id="grthan">Greater than 2</button>
+    <button id="lessthan">Lesser than 2</button>
+
+<ol>
+    <li>Item1</li>
+    <li>Item2</li>
+    <li>Item3</li>
+    <li>Item4</li>
+    <li>Item5</li>
+
+</ol>
+
+</body>
+</html>
