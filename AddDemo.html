@@ -34,11 +34,22 @@ $("#p1").after("<img src='bunny1.jpg' height=100px width=200px/>");
     });
 
     $("#ri").click(function(){
-// var no=$("#itemremove").val();
+  var no=$("#itemremove").val();
+i=1;
+$("li").each(function(){
+    var d=$(this).text();
+    if(d==no)
+    {
+$(this).remove();
+
+    }
+    i+=1;
+});
+
 
 // var j="i"+no;
 
-        $("p").remove();
+       // $("p").remove();
 //var j="<li>" + "Item " + i + "</li>";
 //$("<li>" + "Item " + i + "</li>").remove();
     });
