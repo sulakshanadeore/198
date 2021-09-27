@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+    crossorigin="anonymous"></script>
+    <script>
+$(document).ready(function(){
+    $("p").click(function(){
+        // $("p").append("This is the appended content ");
+        $("p").prepend("This is the prepended content ");
+
+
+    });
+
+    $("#ap").click(function(){
+        var prodname=$("#itemname").val();
+        $("ol").append("<li>" + prodname + "</li>");
+
+    });
+
+    $("#bf").click(function(){
+$("#p1").before("<img src='bunny1.jpg' height=500px width=500px/>");
+
+    });
+
+    $("#af").click(function(){
+$("#p1").after("<img src='bunny1.jpg' height=100px width=200px/>");
+
+    });
+
+    $("#ri").click(function(){
+// var no=$("#itemremove").val();
+
+// var j="i"+no;
+
+        $("p").remove();
+//var j="<li>" + "Item " + i + "</li>";
+//$("<li>" + "Item " + i + "</li>").remove();
+    });
+
+$("#emp").click(function(){
+$("#div1").empty();
+
+});
+
+});
+    </script>
+
+</head>
+<body>
+    <p>
+        This is a paraThis is a para
+        This is a paraThis is a para
+        This is a paraThis is a paraThis is a para
+        This is a para
+    </p>
+    <br/>
+    <hr/>
+    <ol id>
+    <li id="i1">Item 1</li>
+    
+    <li id="i2">Item 2</li>
+    <li id="i3">Item 3</li>
+
+</ol>
+<input type="text" id="itemname" />
+<button id="ap">Append Item</button>
+<input type="text" id="itemremove" placeholder="itemToremove" />
+<button id="ri">Remove Item</button>
+<button id="pp">Prepend Item</button>
+
+<hr/>
+
+<p id="p1">thsi is  a para</p>
+
+<button id="bf">Before Item</button>
+<button id="af">After Item</button>
+<hr/>
+<button id="emp">Empty the div</button>
+<div id="div1">
+    <form>
+        <label>Enter Name</label><input type="text" name="" id="t1"/>
+        <br/>
+        <label>Enter city </label><input type="text" name="" id="t2"/>
+        <br/>
+        <input type="button" id="b3" value="Submit"/>
+        <br/>
+        <label>U Entered Name</label><input type="text" name="" id="t3"/>
+        <br/>
+        <label>U Entered city </label><input type="text" name="" id="t4"/>
+        <br/>
+    
+        </form>
+</div>
+</body>
+</html>
