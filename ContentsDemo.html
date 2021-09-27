@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+    crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            $("#b1").click(function(){
+alert("Text in the paragraph= " + $("p").text());
+
+            });
+
+            $("#b2").click(function(){
+//alert("HTML for the paragraph= " + $("p").html());
+alert("HTML for the paragraph= " + $("body").html());
+
+            });
+
+            $("#b3").click(function(){
+var name =$("#t1").val();//return the text entered
+var city =$("#t2").val();
+
+$("#t3").val(name);//sets the text as value to the textbox
+$("#t4").val(city);
+
+
+            });
+
+
+
+        });
+    </script>
+</head>
+<body>
+    <p>Thsis is para
+        Thsis is para
+        Thsis is para
+        <i>Thsis is para</i>
+
+
+    </p>
+    <button id="b1">GetText</button>
+    <button id="b2">GetHTML</button>
+    <hr/>
+    <form>
+    <label>Enter Name</label><input type="text" name="" id="t1"/>
+    <br/>
+    <label>Enter city </label><input type="text" name="" id="t2"/>
+    <br/>
+    <input type="button" id="b3" value="Submit"/>
+    <br/>
+    <label>U Entered Name</label><input type="text" name="" id="t3"/>
+    <br/>
+    <label>U Entered city </label><input type="text" name="" id="t4"/>
+    <br/>
+
+    </form>
+    
+</body>
+</html>

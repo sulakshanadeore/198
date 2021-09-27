@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1{
+width: 80px;
+height: 100px;
+background-color: blue;
+
+
+        }
+
+        #div2{
+width: 80px;
+height: 100px;
+background-color: red;
+
+        }
+        #div3{
+width: 80px;
+height: 100px;
+background-color: greenyellow;
+
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+    crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+$("#fout").click(function(){
+    //fadeIn---with display:none,with will appear on the screen
+    //fadeIn---with will disappear on the screen
+    //fadeToggle--- on/off 
+    $("#div1").fadeOut();
+$("#div2").fadeOut("slow");
+$("#div3").fadeOut(3000);
+
+});
+
+$("#fin").click(function(){
+    //fadeIn---with display:none,with will appear on the screen
+    //fadeIn---with will disappear on the screen
+    //fadeToggle--- on/off 
+    $("#div1").fadeIn();
+$("#div2").fadeIn("slow");
+$("#div3").fadeIn(3000);
+
+});
+
+
+$("#ftoggle").click(function(){
+    //fadeIn---with display:none,with will appear on the screen
+    //fadeIn---with will disappear on the screen
+    //fadeToggle--- on/off 
+    $("#div1").fadeToggle();
+$("#div2").fadeToggle("slow");
+$("#div3").fadeToggle(3000);
+
+});
+
+
+
+
+        });
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <button id="fout">Fade Out</button>
+    <button id="fin">Fade In</button>
+    <button id="ftoggle">Fade Toggle</button>
+</body>
+</html>
