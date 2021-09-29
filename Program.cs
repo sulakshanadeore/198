@@ -17,10 +17,27 @@ namespace MyFirstconsolApp
             //Default constructor
             //Its created by default when class is created
 
+            Console.WriteLine("Enter Manufacturing Date");
+            DateTime dt = Convert.ToDateTime(Console.ReadLine());
+            if (dt < DateTime.Now)
+            {
 
-            Car mycar = new Car("LXi", "Swift", "Red",500000,"Petrol");
 
-            mycar.ShowCarDetails();
+                Car mycar = new Car("LXi", "Swift", "Red", 500000, "Petrol", dt);
+                mycar.ShowCarDetails();
+            }
+            else
+            {
+                Console.WriteLine("date must be smaller than todays date");
+                Console.WriteLine("Todays date  = " + DateTime.Now);
+                Console.WriteLine("Month =" + DateTime.Now.Month);
+                Console.WriteLine("Day= " + DateTime.Now.Day);
+                Console.WriteLine("Date= " + DateTime.Now.Date );
+                Console.WriteLine("Day of week - " + DateTime.Now.DayOfWeek);
+                Console.WriteLine("Dya of Year =" + DateTime.Now.DayOfYear );
+                Console.WriteLine("Add 2 days to todays date = " + DateTime.Now.AddDays(2));
+            }
+            
 
 
 

@@ -20,7 +20,7 @@ namespace MphasisMathsLibrary
         string fuelType;
         double price;
         double average;
-
+        DateTime mfgDate;
         public Car()
         {
 
@@ -41,10 +41,11 @@ namespace MphasisMathsLibrary
             //Console.WriteLine(this.name);
             //Console.WriteLine(this.model);
         }
-        public Car(string model, string carname, string carcolor,double price,string fuelType):this(model,carname,carcolor)
+        public Car(string model, string carname, string carcolor,double price,string fuelType,DateTime DateofMfg):this(model,carname,carcolor)
         {
             this.fuelType = fuelType;
             this.price = price;
+            this.mfgDate = DateofMfg;
             //Console.WriteLine(this.fuelType);
             //Console.WriteLine(this.price);
             //Console.WriteLine(this.average);
@@ -74,6 +75,7 @@ namespace MphasisMathsLibrary
             Console.WriteLine(average);
             Console.WriteLine(name);
             Console.WriteLine(price);
+            Console.WriteLine(mfgDate);
         }
 
 
