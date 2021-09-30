@@ -16,22 +16,33 @@ namespace ClassLibrary1
             Console.WriteLine("Static of Electronics");
         }
 
-        public ElectronicProducts()
+        
+        public ElectronicProducts():base()
         {
             Console.WriteLine("Electronics Products Constructor");
+            
         }
 
-        public ElectronicProducts(int ePid,string ePname)
+        public void M1()
+        {
+
+        }
+        public ElectronicProducts(int pid,string pname):this()
         {
             Console.WriteLine("Parameterised Electronics");
-            base.ProductID = ePid;
-            base.ProductName = ePname;
+            base.ProductID = pid;
+            base.ProductName = pname;
 
         }
         //private void M1()
         //{
         //    base.GSTCalculate();
         //}
+
+        public override void InsertProductData()
+        {
+            //base.InsertProductData();
+        }
 
     }
 
@@ -45,9 +56,19 @@ namespace ClassLibrary1
             Console.WriteLine("Static constructor of Laptops");
 
         }
+
+        public sealed override void InsertProductData()
+        {
+
+        }
+
         public LaptopAccessories()
         {
             Console.WriteLine("Defualt of Laptops");
+        }
+        public void M1()
+        {
+
         }
 
         string _ModelName;
@@ -59,8 +80,16 @@ namespace ClassLibrary1
 
         
     }
-    public class FMCGProducts:Products
+
+
+    
+    public class FMCGProducts:LaptopAccessories
     {
+
+        public override void InsertProductData()
+        {
+        }
+
         private void M2()
         {
             MethodProtectedInternal();

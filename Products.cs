@@ -15,6 +15,11 @@ namespace ClassLibrary1
         public Products()
         {
             Console.WriteLine("Default Products Constructor");
+            
+        }
+
+        public void M1()
+        {
         }
 
         public Products(int pid,string pname)
@@ -105,6 +110,24 @@ namespace ClassLibrary1
 
         }
 
+        /// <summary>
+        /// This is for Insert product
+        /// </summary>
+        public virtual void InsertProductData()
+        {
+           
+        }
+
+        public void InsertProductData(string pname)
+        {
+            this.ProductName = pname; 
+        }
+        public void InsertProductData(string pname,float price)
+        {
+            this.ProductName = pname;
+            this.ProductPrice = price;
+
+        }
 
 
     }
