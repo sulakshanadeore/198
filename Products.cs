@@ -8,6 +8,23 @@ namespace ClassLibrary1
 {
     public class Products
     {
+        static Products()
+        {
+            Console.WriteLine("Static Products");
+        }
+        public Products()
+        {
+            Console.WriteLine("Default Products Constructor");
+        }
+
+        public Products(int pid,string pname)
+        {
+
+            Console.WriteLine("Parameterised Products Constructor");
+            this.ProductID = pid;
+            this.ProductName = pname;
+        }
+
         private int _prodid;
 
         public int ProductID
@@ -60,6 +77,7 @@ namespace ClassLibrary1
         }
 
 
+        //Accessible to all the classes in the ClassLibrary1
         internal void CalculatePriceAfterDiscount(float price, int qty)
         {
 
@@ -67,6 +85,7 @@ namespace ClassLibrary1
             {
                 Discount= (price * qty) * .05 ;
                 InvAmt = (price * qty) - Discount;
+                GSTCalculate();
             }
             else
             {
@@ -74,7 +93,17 @@ namespace ClassLibrary1
             }
         }
 
+        //Accessible in the assembly to only the derived classes and in  the same class
+        protected void GSTCalculate()
+        {
+            Console.WriteLine("Tax calculations done here ");
+            MethodProtectedInternal();
+        }
 
+        protected internal void MethodProtectedInternal()
+        {
+
+        }
 
 
 
