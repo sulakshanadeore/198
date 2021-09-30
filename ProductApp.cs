@@ -10,14 +10,22 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
+            ElectronicProducts ep = new ElectronicProducts(11, "Cables");
+
+
             //LaptopAccessories laptopAccessories = new LaptopAccessories("Latitude");
+            //Products p = new Products();
+            //p.InsertProductData();
+            //p.InsertProductData("ABC");
+            //p.InsertProductData("ABC", 1000);
+            
             //LaptopAccessories laptop = new ElectronicProducts();
           //  ElectronicProducts laptop = new LaptopAccessories();
             //laptop-static
            
            
 
-            Products p = new Products();
+           // Products p = new Products();
             //p.ProductID = 1;
             //p.ProductName = "Mouse";
             //p.ProductPrice = 700;
