@@ -4,94 +4,56 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibrary2//Acompany
+namespace ClassLibrary1
 {
-    public abstract class Employee
+    public abstract class Vehicle
     {
-        //abstract method(non concrete) & concrete methods
-        //Every abstract class must have atleast one abstract member
-        //abstract classes are meant for inheritance
-        //Abstract methods/members only in abstract class
 
+        public abstract string Vehno { get; set; }
+        //public double Average { get; set; }
+        public string Model { get; set; }
+        public string Name { get; set; }
+        public string RegNo { get; set; }
+               
+        public double CalculateAverage(double distanceTravelled,double speed, int fuelConsumption)
+        {
+            double avg=0;
+            avg=(distanceTravelled * speed) / fuelConsumption;
 
-        public abstract void M1() { }
+            return avg;
+          //  Average = avg;
+        }
         
-        public void M2()
-        {
-
-            Console.WriteLine("Code is here");
-        }
 
 
     }
 
-
-   public interface I1
+    public class Car : Vehicle
     {
-        //1) Interface is a contract
-        //It can behave(behaviors) differently with different classes()
-        //different behavior to same method in different classes
+        string _vehno;
+        public override string Vehno
+        {
+            get {
 
-        //2. Make Interface Public but not member
-        //Property declaration in interface allowed--- yes
-        //Variable declaration in interface allowed--- not allowed
-        //Constant declaration in interface allowed-- not allowed
-        //Access specifiers not allowed with any members
+                return _vehno;
 
-            //Interface cannot inherit from Class, it can inherit only from one or more interfaces.
+            }
+            set {
+                _vehno = value;
+                //Console.WriteLine("Enter State Name");
+                string stname = _vehno;
+                string s=stname.Substring(0, 2);
+                Random r = new Random(9);
+                string no=r.Next().ToString();
 
-            //Even cannot inherit from abstract class
+                _vehno = s + no.Substring(0, 4);
 
-        //const float pi = 3.14f;
-        void Pay(int amt, string modeOfPayment);
-
-        //private int no1;
-
-         int No1 { get; set; }
-        //{
-            //get { return no1; }
-            //set { no1 = value; }
-        //}
-
-
+            }
+        }
     }
 
-    public class Customer : Employee,I1
+    class TwoWheeler : Vehicle
     {
-        public int No1 { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        public override void M1()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void M3()
-        {
-
-            base.M2();
-        }
-
-        public void Pay(int amt, string modeOfPayment)
-        {
-            //Cash on Delivery
-        }
+        public override string Vehno { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
-    public class GoldCustomer : Customer, I1
-    {
-        public void Pay(int amt, string modeOfPayment)
-        {
-           //Mode--- CreditCard + COD
-           //Payment Gateway
-        }
-        public new int No1 { get { return base.No1; } set { base.No1=value; } }
-    }
-
-
-    public class  PremiumCustomer:Customer,I1
-    {
-        //Mode---- UPI + COD + creditCard
-        //UPI Payment Gateway
-    }
-
-
 }
