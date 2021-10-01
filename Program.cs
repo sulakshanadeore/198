@@ -3,41 +3,76 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ClassLibrary1;
-namespace AbstractInterfaceDemo
+using System.Collections;
+namespace CollectionsDemo
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Car c = new Car();
-            c.Model = "LXI";
-            c.Name = "Xeta";
-            c.RegNo = "234234dd";
-            c.Vehno = "KARNATAKA";
-            c.Type = "Geared";
-            Console.WriteLine(c.NoOfDoors);
-            Console.WriteLine("Your Veh no =" + c.Vehno);
-            Console.WriteLine("----------------------------------");
-            TwoWheeler tw = new TwoWheeler();
-            tw.Model = "HT";
-            tw.Name = "Jupiter";
-            tw.RegNo = "234234sdf";
-            tw.Vehno = "MAHA";
-            Console.WriteLine("Your Vehicle No=" + tw.Vehno);
+            ArrayList list = new ArrayList(5);
+            list.Add(33);
+            list.Add(33.33f);
+            list.Add(56.2333d);
+            list.Add("ABC");
+            list.Add('C');
 
-            Console.WriteLine("--------------------------");
+            list.Add(33);
+            list.Add(33.33f);
+            list.Add(33.2333d);
+            list.Add("ABC");
+            list.Add('C');
+            
+            int[] i = new int[4] { 10, 20, 30, 40 };
+            list.AddRange(i);
 
-            Customer customer = new Customer();
-            customer.Custid = 100;
-            customer.Custname = "Jack";
-            Console.WriteLine("------------------");
+            ArrayList list1 = new ArrayList();
+            list1.Add(1000);
+            list1.Add(2000);
+            list.AddRange(list1);
 
-            Bank b = new Bank();
-            b.DisplayCustomerDetails();
+            foreach (var item in list)
+            {
+                Console.WriteLine(item);
+            }
 
+            Console.WriteLine("------After removing---------");
+            list.Remove(33);
+
+            foreach (var item in list)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("--------remove at---------");
+            list.RemoveAt(1);
+            foreach (var item in list)
+            {
+                Console.WriteLine(item);
+            }
+            list.RemoveRange(0, 4);
+            Console.WriteLine("--------remove range---------");
+            foreach (var item in list)
+            {
+                Console.WriteLine(item);
+            }
+            object[] o = new object[] { };
+            Console.WriteLine("----------Array elements------------");
+            o=list.ToArray();
+            foreach (var item in o)
+            {
+                Console.WriteLine(item);
+            }
+
+            list.SetRange(0, o);
+            Console.WriteLine("----------List elements------------");
+            foreach (var item in list)
+            {
+                Console.WriteLine(item);
+            }
 
             Console.Read();
+
+
         }
     }
 }
