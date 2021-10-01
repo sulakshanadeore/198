@@ -15,7 +15,20 @@ namespace AbstractInterfaceDemo
             c.Name = "Xeta";
             c.RegNo = "234234dd";
             c.Vehno = "KARNATAKA";
+            c.Type = "Geared";
+            Console.WriteLine(c.NoOfDoors);
             Console.WriteLine("Your Veh no =" + c.Vehno);
+            Console.WriteLine("----------------------------------");
+            TwoWheeler tw = new TwoWheeler();
+            tw.Model = "HT";
+            tw.Name = "Jupiter";
+            tw.RegNo = "234234sdf";
+            tw.Vehno = "MAHA";
+            Console.WriteLine("Your Vehicle No=" + tw.Vehno);
+
+
+
+
             Console.Read();
         }
     }

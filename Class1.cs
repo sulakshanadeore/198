@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary1
 {
-    public abstract class Vehicle
+    interface IVehDetails
+    {
+        
+  int NoOfDoors { get; set; }
+ string Type { get; set; }
+
+    }
+
+    public abstract class Vehicle:IVehDetails
     {
 
         public abstract string Vehno { get; set; }
@@ -14,7 +22,9 @@ namespace ClassLibrary1
         public string Model { get; set; }
         public string Name { get; set; }
         public string RegNo { get; set; }
-               
+        public abstract int NoOfDoors { get; set; }
+        public string Type { get; set; }
+
         public double CalculateAverage(double distanceTravelled,double speed, int fuelConsumption)
         {
             double avg=0;
@@ -45,15 +55,34 @@ namespace ClassLibrary1
                 string s=stname.Substring(0, 2);
                 Random r = new Random(9);
                 string no=r.Next().ToString();
-
-                _vehno = s + no.Substring(0, 4);
+                    _vehno = s + no.Substring(0, 4);
 
             }
         }
+
+        int _doors=4;
+        public override int NoOfDoors
+        {
+            get { return _doors; }
+            set { _doors = value; }
+        }
     }
 
-    class TwoWheeler : Vehicle
+  public  class TwoWheeler : Vehicle
     {
-        public override string Vehno { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        string _vehno;
+        public override string Vehno
+        {
+            get {
+                return _vehno;
+            }
+             set { _vehno = value;
+                Car car = new Car();
+                car.Vehno = _vehno;
+                
+                _vehno = car.Vehno + 1;
+            }
+        }
+        public override int NoOfDoors { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }
