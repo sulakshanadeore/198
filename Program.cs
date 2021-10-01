@@ -26,7 +26,15 @@ namespace AbstractInterfaceDemo
             tw.Vehno = "MAHA";
             Console.WriteLine("Your Vehicle No=" + tw.Vehno);
 
+            Console.WriteLine("--------------------------");
 
+            Customer customer = new Customer();
+            customer.Custid = 100;
+            customer.Custname = "Jack";
+            Console.WriteLine("------------------");
+
+            Bank b = new Bank();
+            b.DisplayCustomerDetails();
 
 
             Console.Read();
