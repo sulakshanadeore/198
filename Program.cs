@@ -3,148 +3,62 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LambdaDemos;
-namespace LambdaDemoApp
+
+using System.IO;
+namespace FileHandlingDemo
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Maths m = new Maths();
-            AddDelegate a = new AddDelegate(m.DoAddition);
-          int a1= a(10, 100);
-            Console.WriteLine(a1);
+            //Static Method Classes can be called  directly
+
+            //Output Directory---- :Project
+            //             \\, /,@ +\
+            //File.Create(@"D:\Sulakshana\198-Mphasis\abc.txt");
+            //string s = @"D:\Sulakshana\198-Mphasis\xyz.txt";
+            ////string d = @"D:\Sulakshana\198-Mphasis\C#\abc.txt";
+            //////File.Copy(s, d);
+            //File.Exists
+            ////File.Delete(s);
+            ////File.Move(d, s);
+            ////File.WriteAllText(s, "Hello");
+            //string[] s1 = new string[3] {"Hello  ", "welcome" , "Hwo r  u" };
+            //File.WriteAllLines(s, s1);
 
 
-            //Anonymous method
-            AddDelegate aDel = delegate (int b, int c)
+            Directory.CreateDirectory("NEWDIR");
+            bool ans=Directory.Exists("NEWDR");
+            Console.WriteLine(ans);
+            string[] a=Directory.GetDirectories(@"D:\Sulakshana\198-Mphasis\C#\FileHandlingDemo\FileHandlingDemo");
+            foreach (var item in a)
             {
-                return b + c;
-            };
-            int v=aDel.Invoke(10, 100);
-            Console.WriteLine(v);
+                Console.WriteLine(item);
+            }
 
-            //public delegate int StringLength(string s);
-            //anonymous methods are simple way to work with delegates
-            Console.WriteLine("----------------------------------------");
-            StringLength str = delegate (string y) {
-                int i = y.Length;
-                return i;
-            };
-
-
-            int len=str("Hello");
-            Console.WriteLine(len);
-            Console.WriteLine("----------------Working with Func lambda and Action Lambda--------------------------");
-
-            ////public delegate int AddDelegate(int i, int j);
-            //Last in the list is return type
-            //public delegate int StringWorking(string a,char b);
-            //Func<string,char,int> 
-            
-            Func<int, int, int> AppAddition = delegate (int i, int j) { return i + j; };
-            int myans=AppAddition(10, 20);
-            Console.WriteLine(myans);
-            Action<int, int> AppAddition1 = delegate (int i, int j) { int ans= i + j;
-                Console.WriteLine(ans);
-            };
-            AppAddition1(100, 200);
-
-            Predicate<string> checkIfAppleIsString = delegate (string fruitname)
+            //Directory.Move
+            Console.WriteLine("Directory name");
+            FileInfo fileInfo = new FileInfo("abc.txt");
+            string dirname=fileInfo.DirectoryName;
+            Console.WriteLine(dirname);
+            DirectoryInfo dirinfo = new DirectoryInfo(@"D:\Sulakshana\198-Mphasis\C#\FileHandlingDemo\FileHandlingDemo");
+            Console.WriteLine("IEnumerable");
+            IEnumerable<DirectoryInfo> dinfo=dirinfo.EnumerateDirectories();
+            foreach (var item in dinfo)
             {
-                if (fruitname == "Apple")
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            };
-
-            bool anscheck=checkIfAppleIsString("Banana");
-            Console.WriteLine(anscheck);
-
-            Console.WriteLine("------------------------------------------------------");
-                                                                    
-
-            //public delegate int AddDelegate(int i, int j);
-            //=>goes to/lambda symbol
-
-
-            //(same parameter names) => { }
-            //(diff parameter names) => { }
-            //(type with parameter names) => { }
-            //(type with parameter names) => single statement;
-
-
-
-
-            //Lambda Expressions
-            AddDelegate del =(i, j)=>{ return i + j; };
-            AddDelegate del1 = (y,z ) => { return y + z; };
-            AddDelegate del2 = (int p, int q) => { return p + q; };
-            AddDelegate del3 = (int p, int q) =>  p + q;
-            AddDelegate del4 = (int p, int q) => 
-            {
-                int ans=p + q;
-            //    Console.WriteLine(ans);
-            //Console.WriteLine("Answer of p + q=" +ans);
-                return ans;
-            };
-
-            Console.WriteLine("Lambda invokation");
-            int answer=del1(10, 20);
-            Console.WriteLine(answer);
-
-            answer = del2(10, 20);
-            Console.WriteLine(answer);
-
-            answer = del3(10, 20);
-            Console.WriteLine(answer);
-
-            answer = del4(10, 20);
-            Console.WriteLine(answer);
-
-            Console.WriteLine("-------------------------------------");
-            List<int> listint = new List<int>(5) {3,4,25,2,40 };
-
-            //IEnumerable<int> ie=listint.Where(x =>
-            //{
-            //    if (x % 2 == 0)
-            //        return true;
-            //    else
-            //        return false;
-            //});
-            //Console.WriteLine("Even nos are");
-            //foreach (var item in ie)
-            //{
-            //    Console.WriteLine(item);
-            //}
-
-            //When lamdba  has return type-- its called function lambda---- Func<>
-            //When lambda has no return type(void)----its called Action Lambda-- Action<>
-            //When lamdba  has return type & its bool its called Predicate lambda-- Predicate
-            List<int> evenlist = new List<int>();
-            evenlist =listint.Where(x =>
-            {
-                if (x % 2 == 0)
-               return true;
-               else
-                    return false;
-            }).ToList();
-
-            
-
-
-
-
-
-
-
-
-
+                Console.WriteLine(item.Name);
+            }
+            DriveInfo drinfo = new DriveInfo("D");
+            Console.WriteLine("Name="+drinfo.Name);
+            Console.WriteLine("Root =" + drinfo.RootDirectory);
+            Console.WriteLine("Total Size= " + drinfo.TotalSize);
+            Console.WriteLine("Free size" + drinfo.TotalFreeSpace);
+            Console.WriteLine("Label " + drinfo.VolumeLabel);
+            Console.WriteLine("Type "+ drinfo.DriveType);
+            Console.WriteLine("Available Free space= " +drinfo.AvailableFreeSpace);
+            Console.WriteLine("Drive Format" + drinfo.DriveFormat);
             Console.Read();
+           
 
         }
     }
