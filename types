@@ -1,0 +1,18 @@
+//Types which stored on  stack--are value types--struct/enums
+            //int i = null;
+            //Value types cannot be null, Reference types can be null
+            Nullable<int> i = null;//Nullable type
+           int? j = null;//Nullable type
+            Console.WriteLine(j.GetType());
+            Console.WriteLine("Get Type");
+            int k = 100;
+            Console.WriteLine(k.GetType());
+            Console.WriteLine("with var");
+            var y = "hello";// Implicitly typed variable
+            Console.WriteLine(y.GetType());
+            Console.WriteLine("With dynamic......");
+            dynamic f = "888";
+            Console.WriteLine(f.GetType());
+            f = 45435;
+            Console.WriteLine(f.GetType());
+            Console.Read();
