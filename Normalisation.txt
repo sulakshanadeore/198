@@ -1,0 +1,172 @@
+
+
+	Normalisation is the process of organizing the data in the database to avoid redundancy, insertion anomaly, deletion anomaly,updation anomaly.
+
+companyDB
+---------
+emp			allow null-false
+empid ename address    deptno
+ 1	A	Delhi   10
+ 1  	A 	Delhi	20
+ 3 	B	Pune 	30
+ 4 	C	Hyd	40
+ 4 	C 	Hyd	50
+
+update anomaly--- inconsistent
+insert anomaly---  will not be able to insert
+delete anomaly--- 20--- B ----b employee deleted
+
+First NF--- a column cannot have multiple value stored.
+
+empid ename address     mobileno
+ 1	A	Delhi   12342344
+ 2  	D 	Delhi	12356724
+			89433234
+ 3 	B	Pune 	30234234
+ 4 	C	Hyd	40243245
+ 5 	E 	Hyd	50234234
+
+This is not in 1st NF, 
+"Each attribute of a table must have atomic (single value)"
+
+empid ename address     mobileno
+ 1	A	Delhi   12342344
+ 2  	D 	Delhi	12356724
+ 3 	B	Pune 	30234234
+ 4 	C	Hyd	40243245
+ 5 	E 	Hyd	50234234
+
+2nd NF---
+
+It is said in 2nd NF
+1) it is 1nf
+2) no non-prime attribute is dependent on the proper subset
+of any candidate key of table.
+
+teacher_id 	subject		age
+111		M1		34
+111		M2		34
+222		B		35
+333		C		45
+444		D		36
+
+age--- Non prime(non important)
+teacher_id,subject--- candidate keys
+
+teacherdetails
+teacher_id	teacher_age
+111		34
+222		35
+333		45
+444		36
+
+teacherSubject
+teacher_id	subject
+111		M1
+111		M2
+222		B
+333		C
+444		D
+
+
+3 NF
+-----
+To be in 3rd NF
+
+1) it should be in 2nd NF
+2)transitive functional dependency of non-prime attribute on any
+ super key should be removed.
+
+Non-Prime
+-------
+A attribute that is not a part of any candidate key is known 
+as non-prime attribute.
+
+Prime
+-----
+
+
+An attribute that is a part of the candidate key is a prime attribute.
+
+empid ename pincode state city      district
+1	A	1    UP    Agra		A
+2	B	2    AP	   Hyd		B	
+3	C	2    AP	   Hyd		B
+4	D	3    MP	   Indore	C
+5 	E	4    MH	   Pune    	H
+
+SuperKey--- is a key with which u shud be able to identify the whole
+row uniquely.
+  SuperKeys---  empid, empid+ename, empid+ename+pin,  empid+ename+pin+state......
+
+Candidate Key----  empid
+
+Non-prime---all attributes except empid are non-prime
+
+
+emp
+empid ename pincode
+-----------------------
+emp-pincode
+pincode state city district
+--------------------------------
+
+
+
+BCNF--- Boyce Codd Normal Form
+-----------------------------
+
+1 dept--- M Emp
+Mdept---- 1 emp
+
+BCNF -----non-trivial
+1) 3NF
+2) For every functional dependency X->Y,
+ X must be a super key of the table.
+
+empid nationality deptname 	        dno	deptCount
+  1	I	  Production&Planning  	10	 200
+  1	I	 Stores			20	100
+  3	US	  Purchase		30	300
+  3	US       Designing&Technical    40	400
+
+Functional dependencies in the table:
+--------------------------------------
+empid --->nationality
+
+dname ---> (dno,deptname)
+
+Candidate Keys--- >empid, dno
+
+BCNF
+
+empnationality
+-------------
+empid  nationality
+  1	I
+  3	US
+
+--------------------
+dept
+
+dname                  dno     deptCount
+
+Production&Planning  	10	200
+Stores			20	100
+Purchase		30	300
+Designing&Technical    40	400
+
+----------------------------
+emp_dept---- Mapping
+
+empid dno
+
+1	10-----> 110
+1	20----->120
+3	30----->330
+3	40----->440
+
+Candidate Keys
+empnationality---- empid
+dept-----dno, dname
+emp_dept----> empid+dno(Composite Key\)
