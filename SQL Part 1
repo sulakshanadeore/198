@@ -1,0 +1,48 @@
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT TOP 1000 [empid]
+      ,[ename]
+      ,[sal]
+      ,[deptid]
+  FROM [BankingDB].[dbo].[emp]
+  use BankingDB
+  go
+
+  insert into emp(empid,sal,ename) values(4,40000,'D')
+
+  create table t3
+  (c1 int unique,
+  c2 varchar(10)
+  )
+  insert into t3 values(NULL,'A')
+  insert into t3 values(NULL,'B')
+
+
+  select * from emp
+
+
+  update emp
+  set sal=30000
+  where deptid=10  or empid=1              ----filtering
+
+delete from emp
+where deptid is NULL
+
+
+
+  pk===> unique + not 
+  null
+
+
+
+  create table t2
+  (c1 int primary key,
+  c2 int unique not null)
+
+
+
+
+  insert into t1 values (1,'A')
+  insert into t1 values (2,'A')
+  insert into t1 values (NULL,'A')
+
+
