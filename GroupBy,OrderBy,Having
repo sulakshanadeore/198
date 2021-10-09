@@ -87,3 +87,24 @@ order by TotalOrderAmt
 select * from products
 where categoryid=1
 order by unitprice
+
+
+
+
+
+---rollup ----- total of all orders by orderid
+select orderid,   sum((UnitPrice*Quantity) -  ((UnitPrice*Quantity)*Discount)) TotalOrderAmt from [Order Details]
+group by rollup (orderid)
+
+
+select orderid,productid,   sum((UnitPrice*Quantity) -  ((UnitPrice*Quantity)*Discount)) TotalOrderAmt from [Order Details]
+group by rollup(orderid,productid)
+order by TotalOrderAmt
+
+
+select orderid,  productid,  sum((UnitPrice*Quantity) -  ((UnitPrice*Quantity)*Discount)) TotalOrderAmt from [Order Details]
+where orderid in(10248,10249)
+group by orderid,ProductID with cube
+
+select * from [Order Details] 
+where orderid=10249 or orderid=10248
