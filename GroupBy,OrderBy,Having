@@ -1,0 +1,89 @@
+select * from products
+
+-----Group by--- aggregate functions
+---grouping is done using aggregates
+different groups will be created for different categories
+
+category 1          category 2			categroy3		category4          .................................category8
+
+productid 1			productid 3
+productid 2
+
+     count---2								1						0					9		..................................................9
+
+
+
+select count(productid)  as productcount from products
+select count(*)  as productcoumt from products
+
+select * from products 
+where categoryid=1
+
+select * from products 
+where categoryid=3
+
+select count(*) as productcount from products 
+where categoryid=1
+
+select count(*)  as productcount from products 
+where categoryid=3
+
+----categorywise count of products
+--categoryid      productcnt
+--      1						12
+--	    2						13
+---		3						12
+---4							15
+
+
+select categoryid,count(*) productCount from products
+group by CategoryID
+order by productCount 
+
+select categoryid,count(*) productCount from products
+group by CategoryID
+order by  productCount desc,categoryid 
+
+
+select categoryid,count(*) productCount from products
+group by CategoryID
+order by  productCount desc,categoryid desc
+
+
+--Show categorywise avg unit price for products
+
+select categoryid, avg(unitprice) avgProductPrice from Products
+group by categoryid
+order by 1 desc
+
+select categoryid, avg(unitprice) avgProductPrice from Products
+group by categoryid
+order by 2 asc
+
+//avg unit price for each categoryid
+//max unitprice for each categoryid
+
+select categoryid,min(unitprice) MinUnitPriceInGroup,avg(unitprice) avgProductPriceInGroup, max(unitPrice) MaxProductPriceInGroup from Products
+group by CategoryID
+
+
+select categoryid, min(unitprice) MinUnitPriceInGroup,avg(unitprice)  avgProductPriceInGroup, max(unitPrice) MaxProductPriceInGroup from Products
+group by CategoryID
+having avg(unitprice)=20.25
+
+select * from [Order Details]
+
+select orderid,productid,unitprice,quantity,discount, (UnitPrice*Quantity) Amt, (UnitPrice*Quantity)*Discount  as Discount,  (UnitPrice*Quantity) -  ((UnitPrice*Quantity)*Discount) afterDiscount from [Order Details]
+
+select 168+98+174
+---productid,unitprice,quantity,discount, (UnitPrice*Quantity) Amt, (UnitPrice*Quantity)*Discount  as Discount,
+select orderid,   sum((UnitPrice*Quantity) -  ((UnitPrice*Quantity)*Discount)) TotalOrderAmt from [Order Details]
+group by orderid
+
+select orderid,productid,   sum((UnitPrice*Quantity) -  ((UnitPrice*Quantity)*Discount)) TotalOrderAmt from [Order Details]
+group by orderid,productid
+having sum((UnitPrice*Quantity) -  ((UnitPrice*Quantity)*Discount))>1000
+order by TotalOrderAmt
+select * from products
+where categoryid=1
+order by unitprice
