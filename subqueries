@@ -84,3 +84,52 @@ where sal > all(
 select sal from emp 
 where deptno=20
 )
+---------------------------------------------------------------------------------
+
+---outer query is called/referenced in the inner query then its  co-related sub query
+---for every row executed by the outer the inner query query executes again
+---find the employees who have salaries greater than the average salary in their own depts
+
+--All below statements are true
+A co-related sub query is evaluated once for each row processed by their parent statment.
+A co-related sub query can be used in INSERT,UPDATE,DELETE
+Co-related sub queries are  used for row by row processing of the data
+Cursors also can be used for row by row processing of the data
+
+
+1) find avg sal of each dept( ie deptwise)
+2) take every employee and compare his  salary with the avg(salary) of  his own dept
+
+select empno,ename,sal,deptno from emp  o
+where o.sal >
+( select avg(sal) from emp i
+where o.deptno = i.deptno)
+
+select deptno,avg(sal) avgsal from emp
+group by deptno
+
+
+-----find out emp who have atleast one person reproting to him
+
+select empno,ename,job,deptno from emp o
+where exists( select count(*) from emp
+where mgr=o.empno)
+
+
+select * from emp
+
+
+
+use northwind
+go
+select employeeid,reportsto from Employees ----1,3,4,6,7,8,9
+
+select employeeid,firstname,title,reportsTo from Employees o
+where  exists( select 'a' from employees
+where ReportsTo=o.EmployeeID)
+
+
+select employeeid,firstname,title,reportsTo from Employees o
+where  not exists( select 'b' from employees
+where ReportsTo=o.EmployeeID)
+
