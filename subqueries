@@ -1,0 +1,86 @@
+---sub-queries
+---- query inside query
+----- inner query evaluated first and its output passed to outer query for further processing
+------ used when  a part of data is known and want to find the corresponding data available in one or more tables
+
+--operators
+ --in---when ever u want to compare multiple values ---- ie inner query returns more than one value use in operator
+-- =-----when ever u want to compare single value-- ieinner query returns only one value use = operator
+ --exists------when the condition needs to be boolean--- ie. if inner query executes then and onky then  outer query must execute
+
+ --all (max)------- is used with comparision operator--- >,< ----- ie inner query returns a single value and u wnat the outer  query to return values greater than /less than (all the values returned by the inner query)---- max
+ --any(min)--  is used with comparision operator--- >,< ----- ie inner query returns a single value and u wnat the outer  query to return values greater than /less than (any the values returned by the inner query)---- 
+ -----
+ -------co-related subqueries
+
+
+
+ 
+ select * from emp
+ ---list all emp working in the same dept as smith works
+ 1) where smith works
+  select deptno from emp where ename like 'SMITH'
+
+  select ename from emp 
+  where deptno= ( select deptno from emp where ename like 'SMITH')
+  ------------------------------------------------------------------------------------------------
+  2) employees having same job as SCOTT has
+
+  1) select job from emp 
+  where ename like 'SCOTT'
+  
+  select * from emp
+  where job like ( select job from emp 
+  where ename like 'SCOTT')
+
+
+-------------------------------------------------------
+--find out all employee details who have the same job as BLAKE AND JONES
+
+select job from emp
+where ename like 'BLAKE' or ename like 'JONES'
+
+select job from emp
+where ename in( 'BLAKE','JONES')
+
+select * from emp
+where job in (select job from emp
+where ename in( 'BLAKE','JONES'))
+
+select * from emp
+where job in (select job from emp
+where ename like 'BLAKE' or ename like 'JONES')
+---------------------------------------------------------------------
+--list all the employees in deptno 20 if count of employees in deptno 10 >2
+
+select * from emp
+where deptno=20 and exists(select count(empno) from emp
+where deptno=10
+having count(empno)>2
+)
+
+--list all the employees  if count of employees in deptno 10 >1
+select * from emp
+where  exists(select count(empno) from emp
+where deptno=10
+having count(empno)>1
+)
+
+------------------------------------------------------
+
+select sal from emp 
+where deptno=20
+
+--list all the employees whose sal is greater than any of the salaries greater than  sal in deptno=20
+select * from emp
+where sal > any(
+select sal from emp 
+where deptno=20
+)
+
+
+select * from emp
+where sal > all(
+select sal from emp 
+where deptno=20
+)
