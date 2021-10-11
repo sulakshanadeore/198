@@ -88,6 +88,82 @@ select e.employeeid,e.firstname,e.lastname,e.title,e.reportsto "ManagerId",
 m.firstname "Mgrs Firstname", m.lastname "Mgr Last name" ,m.title "Mgrs Designation"
 from  Employees e, Employees m
 where e.ReportsTo = m.EmployeeID
+----------------------------------------------------------------------
+outer joins
+1) left 
+2) right
+3) full -- union
+
+use OldHR
+
+select empno,ename, e.deptno,dname,loc 
+from
+ emp e left outer join dept d 
+ on  e.deptno=d.deptno
+ ----show all depts whether there are employees in it or not
+					LHS					RHS
+ select empno,ename, e.deptno,dname,loc 
+from 		emp e right outer join dept d 
+ on  e.deptno=d.deptno
+
+ select empno,ename, e.deptno,dname,loc 
+from dept d left   outer join emp e
+ on  e.deptno=d.deptno
+
+---list only the depts who have employees in them
+ select empno,ename, e.deptno,dname,loc 
+from emp e left   outer join dept d 
+ on  e.deptno=d.deptno
+
+ select empno,ename, e.deptno,dname,loc 
+from dept d right   outer join emp e
+ on  e.deptno=d.deptno
+
+ --------------------------------------------------------------
+
+ select empno,ename, e.deptno,dname,loc 
+from emp e full   outer join dept d 
+ on  e.deptno=d.deptno
+
+
+ select empno,ename, d.deptno,dname,loc 
+from emp e left   outer join dept d 
+ on  e.deptno=d.deptno
+ union
+ select empno,ename, d.deptno,dname,loc 
+from emp e right   outer join dept d 
+ on  e.deptno=d.deptno
+
+select empno,job from emp
+order by job
+null values with order by
+-------------------------------
+asc---- null values are listed first or at the top as first rows
+desc---- null values are listed at the end or they r the last rows to be displayed
+
+select empno,job from emp
+order by job desc
+
+
+Which of the follwoing statements are true?(mutiple choice )
+
+1) whenever select statement is  written and it has a group by , the aggregate attribute 
+column appers in the group by clause
+2) all the ohter columsn excluding the aggregate attribute are included in the group by.----T
+3) ORder by is compulsory for the non grouped columns
+4) having clause is written on the group column----T
+5) having clause is written on the non grouped column
+6) the groupby caluse can have only the selected column or it can have non selected column as well---T
+7) order by clause requires the column to be selected in the select list
+
+select sum(sal) from emp
+group by deptno
+order by deptno
+--------------------------
+ 
+ 
+
+
 
 
 
