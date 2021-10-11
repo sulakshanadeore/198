@@ -1,0 +1,101 @@
+Joins
+
+1) Natural/inner join/equi joins(=) joining condition //////////////Non Equi Joins(>,<.>=.<=,<>,!=)
+2) Self Join
+3) Outer Join----  left,right, full outer
+4) Catesian joins--- CROSS JOINS( x (multiplication))
+
+use oldhr
+
+select * from emp 
+
+select * from dept
+						condition on deptno(common)
+
+all of emp table--- deptno from emp table---- but dname,loc from dept
+visibility purpose
+
+---ambiguity in the column name--deptno
+----ambiguity must be resolved 
+----by using tablename as a prefix to the column name or by using alias to the table name
+----specify the condition of the join using "on" 
+select empno,ename,job,sal,mgr,hiredate,comm,dept.deptno from emp inner join dept 
+
+
+select empno,ename,job,sal,mgr,hiredate,comm,d.deptno,
+dname,loc from emp inner join dept d 
+on d.deptno=emp.deptno
+
+select empno,ename,job,sal,mgr,hiredate,comm,d.deptno,dname 
+from emp e inner join dept d 
+on d.deptno=e.deptno
+
+---- ANSI SQL syntax---- 
+
+select * from dept
+select * from emp
+NATURAL/INNER JOINS/EQUI JOINS
+select empno,ename,job,sal,mgr,hiredate,comm,e.deptno,dname from emp e inner join dept d 
+on d.deptno=e.deptno
+
+
+select empno,ename,job,sal,mgr,hiredate,comm,e.deptno,dname from emp e , dept d 
+where d.deptno=e.deptno
+
+
+
+
+select empno,ename,job,sal,mgr,hiredate,comm,e.deptno,dname
+ from emp e natural join dept d 
+ (automatically takes common column)
+
+
+-----------------------------------------------------------------------
+select * from emp---10
+
+select * from dept----6
+
+
+select empno,ename,job,sal,mgr,hiredate,comm,d.deptno,
+dname,loc from emp inner join dept d 
+on d.deptno!=emp.deptno
+
+
+
+select empno,ename,job,sal,mgr,hiredate,comm,d.deptno,
+dname,loc from emp inner join dept d 
+on d.deptno<>emp.deptno
+
+
+select * from dept----6
+select empno,ename,job,sal,mgr,hiredate,comm,e.deptno Original,d.deptno deptDeptno,
+dname,loc from  emp e inner join dept d 
+on e.deptno>d.deptno
+order by e.empno
+-------------------------------------------------------------------------------------
+
+----Cartesioan 
+select empno,ename,job,sal,mgr,hiredate,comm,d.deptno,
+dname,loc from emp , dept d 
+
+------------------------------------------------------------------------------
+use northwind
+select * from Employees
+select  employeeid,firstname,lastname,title,reportsTo from Employees
+--print employeeid,firstname,lastname,title,reports to, mgrfirstname,mgr lastname
+
+select e.employeeid,e.firstname,e.lastname,e.title,e.reportsto "ManagerId", 
+m.firstname "Mgrs Firstname", m.lastname "Mgr Last name" ,m.title "Mgrs Designation"
+from  Employees e, Employees m
+where e.ReportsTo = m.EmployeeID
+
+
+
+
+
+
+
+
+
+
+
