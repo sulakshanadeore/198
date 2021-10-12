@@ -1,0 +1,91 @@
+-----indexes,views,synonyms
+----functions,procedures,triggers
+
+Views--- virtual tables
+---they donot store any data with them, they fetch the data from the underlying table
+---Views can be created on tables or they can be created on other view.
+--------Oracle------IF the data is saved by the view, they are called "materialized view".
+use OldHR
+go
+
+--Types
+------
+--1) Simple Views/Update able Views-------  the views that can be updated
+no group by, no aggregate function,no sub query, no join 
+We can update/insert/delete from the table using the view
+
+select * from emp
+
+update v1
+set ename='Geeta'
+where empno=14
+
+insert into v1 values (15,'Seeta')
+
+delete from v1 
+where empno=14
+-------------------------------------------------------------------------------------------------
+
+--2) Complex Views/Non Update able Views----- the views cannot be updated
+
+---------------------------------------------------------------------------------------------------------
+
+
+create view v1
+as 
+select empno,ename from emp;
+
+create view v2
+as 
+select empno from v1;
+
+select * from v2
+
+insert into v2 values(14)
+
+select * from emp
+
+
+select * from v1
+
+create view v3
+(employeeid,employeename,desig)
+as 
+select empno,ename,job from emp;
+
+select desig,employeename,employeeid from v3
+
+create view v4
+as 
+select empno,ename,job,deptno from emp
+where deptno=10
+with check option;
+
+insert into v4 values(18,'raj','Manager',20)
+
+select * from emp
+update emp
+set deptno=10
+where empno=16
+
+select * from v4;
+
+drop view v4
+
+
+
+
+
+
+create view v5
+(employeeid,employeename,desig)
+as 
+select empno,ename,job from emp
+
+***************************************************************************************************
+create view v7
+as
+select deptno,sum(Sal) TotalSalary from emp
+group by deptno
+
+insert into v7 values (70,24242)
