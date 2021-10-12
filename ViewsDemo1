@@ -1,0 +1,61 @@
+--Views
+--- its a database object like a table
+----virtual tables
+---- they donot hold data 
+---- they fetch data from the underlying table/tables(base table/tables)
+---2 types of views
+ --a) Simple Views/Updateable Views
+     ---- donot have groupby, join,subquery in its definition
+		----only a select query while defining a view is a simple view
+ --b) complex Views/Non Updateable Views
+ ---- have groupby, join,subquery,etc in its definition
+ ------------------------------------------------------------
+
+ create view v1
+ as  
+ select * from Students
+
+
+ select * from v1
+
+ create view v2
+ (studno,studentname,studentcity,studstate,studcountry,studDept)
+ as
+ select * from students
+
+ select * from v2
+ ----Abvoe is a simple view--
+ ---Advantages of view
+ ---1) Encapsulation--- u donot know the column names in the table via the 
+ --view. they(column names) can be changed.
+ --- 2)If its a simple view, u can do all operations on(via) the view
+ ---that u do on a table
+ insert into v2 values('Jay','Jamshedpur','UP','India',10)
+ update v2
+  set studentcity='Hyd',
+   studstate='AP'
+    where studentcity='Pimpri'
+
+-----3)U achieve security over your database table, as the table name is known to the view
+---and not to the user of view.
+----4) U can select all/some columns of the table while defining the view
+
+create view v3 
+as 
+select rollno,sname from Students
+
+
+select * from v3
+
+create view v4
+as 
+select deptno,count(city) as city from Students
+group by deptno
+
+select * from v4
+
+---not allowed in sql server but allowed in oracle
+--create view v5
+--as 
+--select rollno,sname from Students
+--with read only
