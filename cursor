@@ -1,0 +1,37 @@
+---cursors-- memory locations ---where working of tables is done.
+
+
+What is used for ?
+Row by row processing of the data.
+better control over the rows cursors are more helpful and  easy to work with.
+U can use cursors in functions/procedure when doing DML operations.
+
+(Co- related subqueries)
+1) declaring a cursor in the declare block
+2) open the cursor in the begin block
+3) fetch records from the cursor
+4) processing---- printing of records
+--5) fetch next
+6) close 
+7) deallocate
+
+declare
+c1 cursor 
+for
+select productid,productname from Products
+where  CategoryID=1
+declare 
+@v_prodid int,
+@v_prodname varchar(50)
+begin
+open c1
+fetch next from c1 into @v_prodid,@v_prodname
+print 'PRODUCTID       PRODUCTNAME'    
+while @@fetch_status=0
+begin
+print '   ' + cast(@v_prodid as varchar(20))  +   '             ' +   @v_prodname
+fetch next from c1 into @v_prodid,@v_prodname
+end
+close c1
+deallocate c1
+end;
