@@ -1,0 +1,47 @@
+Hosting the Web App
+Putting the app to Production-----
+
+1)Development Server----while the development work is going on , to test the development as it 
+progresses daily, the developers use Development Server
+2)Testing Server------where is application/software is tested 
+3)ProductionServer------final server where is hosted and used by its clients
+
+
+Server---- a dedicated hardware computer used for working with client server architecture, which
+generally uses tcpip protocol
+In house server----- tcp/ip(LAN)
+>5 kms (approx). WAN------ tcp/ip 
+		http://
+	all users even at a very big distance.
+
+Http Server------- lan of lans--- multiple wans come together here.
+
+http protocol  to make the application accessible the server on which u want to host  the application\
+must have IIS enabled on it.
+IIS--- Internet Information Services.(w3c)---- world wide web consortium.
+
+It is a windows feature. (Add or remove Windows )
+FTP----File Transfer protocol.
+
+
+Web Applications---- that will be hosted on the windows server---- IIS
+.NET CORE--------> allows u to build and host apps outside windows.
+Apache/Tomcat etc---------->
+
+Module----->ADO.NET -deals with connectivity
+
+
+(Data Source)Sources of Data and C#/language
+
+1)Libraries---- related to SQL Server and C# ----- connectivity     					--------console app/windows app----- database from database server--- 
+					I/U/D ---- data from the database
+	using System.Data.SqlClient---- Lib/namespace
+
+
+
+2) Excel and C#----- using System.Data.OLEDB
+3) Oracle and C#----- using System.Data.Oracle
+4) MySQL  and C#----- using System.Data.OLEDB
+		      using System.Data.ODBC
+5) Any database and C#---- using System.Data.OLEDB
+		      using System.Data.ODBC
