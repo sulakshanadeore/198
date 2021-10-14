@@ -26,6 +26,29 @@ namespace FirstConnectivityApp
                 if (ans==true)
                 {
                     Console.WriteLine("Welcome " + login.Username);
+
+                    Console.WriteLine("Do u want to add a new product");
+                    bool userans = Convert.ToBoolean(Console.ReadLine());
+                    if (userans==true)
+                    {
+                        ProductsBAL bal = new ProductsBAL();
+                        Console.WriteLine("Enter Prodname");
+                        bal.Prodname = Console.ReadLine();
+
+                        Console.WriteLine("Enter Product Price");
+                        bal.Price =Convert.ToSingle(Console.ReadLine());
+
+                        Console.WriteLine("Enter UOM");
+                        bal.UOM = Console.ReadLine();
+
+                        ProductsDAL dal = new ProductsDAL();
+                        dal.InsertProducts(bal);
+                        Console.WriteLine("Record aded successfully....");
+
+                    }
+
+
+
                 }
                 else
                 {
