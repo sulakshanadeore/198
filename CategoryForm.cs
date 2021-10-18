@@ -27,7 +27,13 @@ namespace WindowsFormsApp1
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            CategoryDAL dal = new CategoryDAL();
 
+            dal.DeleteCategory(Convert.ToInt32(txtcatid.Text));
+
+            MessageBox.Show("Deleted successfully....");
+            btnClear_Click(sender, e);
+            CategoryForm_Load(sender, e);
         }
 
         private void btnInsert_Click(object sender, EventArgs e)
@@ -45,6 +51,7 @@ namespace WindowsFormsApp1
             if (s=="Done")
             {
                 MessageBox.Show("Record added successfully");
+                    CategoryForm_Load(sender, e);
 
             }
             else
@@ -65,16 +72,64 @@ namespace WindowsFormsApp1
         {
             try
             {
+                CategoryDAL dal = new CategoryDAL();
                 CategoryBAL bal = new CategoryBAL();
-                bal.CategoryID =Convert.ToInt32(txtcatid.Text);
-                bal.CatName = txtcatname.Text;
-                bal.CatDesc = txtcatdesc.Text;
+                bal.CategoryID = Convert.ToInt32(txtcatid.Text);
+                bal=dal.FindCategory(bal.CategoryID);
+                txtcatname.Text = bal.CatName;
+                txtcatdesc.Text = bal.CatDesc;
+
+                DialogResult dr = MessageBox.Show("Do u want to edit this record", "User Confirmation", MessageBoxButtons.YesNo);
+                if (dr == DialogResult.Yes)
+                {
+                    btnEdit.Text = "Update";
+                    txtcatname.Focus();
+                    
+                }
+                
+                
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void CategoryForm_Load(object sender, EventArgs e)
+        {
+            CategoryDAL dal = new CategoryDAL();
+            DataTable dt = new DataTable();
+            dt=dal.showall();
+            dataGridView1.DataSource = dt;
+          //  dataGridView1.DataMember = "categories";
+        }
+
+        private void txtcatdesc_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                CategoryDAL dal = new CategoryDAL();
+                CategoryBAL bal = new CategoryBAL();
+                bal.CategoryID = Convert.ToInt32(txtcatid.Text);
+                bal.CatName = txtcatname.Text;
+                bal.CatDesc = txtcatdesc.Text;
+                dal.UpdateCategoryData(bal);
+
+                MessageBox.Show("Updated.... ");
+                CategoryForm_Load(sender, e);
+            }
+            catch (FormatException ex)
+            {
+
+                btnInsert_Click(sender, e);
+            }
+            
+        }
+
+        private void txtcatdesc_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
