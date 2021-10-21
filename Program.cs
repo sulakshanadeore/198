@@ -3,45 +3,66 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
-namespace DLinqDemo
+namespace LinqToXMLDemo
 {
     class Program
     {
         static void Main(string[] args)
         {
-            ShoppingDBDataContext context = new ShoppingDBDataContext();
-            context.sp_InsertProducts("Logitech Mouse", 2000, "piece");
-            context.SubmitChanges();
+            //string path = @"D:\Sulakshana\198-Mphasis\C#\LinqToXMLDemo\LinqToXMLDemo\Empdata.xml";
+            //XDocument xdocument = XDocument.Load(@"D:\Sulakshana\198-Mphasis\C#\LinqToXMLDemo\LinqToXMLDemo\Empdata.xml");
+            //List<XElement> employees = xdocument.Elements().ToList();
+            //foreach (var employee in employees)
+            //{
+            //    Console.WriteLine(employee);
+            //}
+
+            //Using Xelement
+            //XElement xelement = XElement.Load(@"D:\Sulakshana\198-Mphasis\C#\LinqToXMLDemo\LinqToXMLDemo\Empdata.xml");
+            //IEnumerable<XElement> employees = xelement.Elements();
+            ////// Read the entire XML
+            //foreach (var employee in employees)
+            //{
+            //    Console.WriteLine(employee);
+            //}
+
+            //Console.WriteLine("--------------------------------");
+            //IEnumerable<XElement> employeesNames = xelement.Elements();
+            //Console.WriteLine("List of all Employee Names :");
+            //foreach (var employee in employeesNames)
+            //{
+            //    Console.WriteLine(employee.Element("Name").Value);
+            //}
 
 
+            //Console.WriteLine("------------------");
+
+            //XElement xelement1 = XElement.Load(@"D:\Sulakshana\198-Mphasis\C#\LinqToXMLDemo\LinqToXMLDemo\Empdata.xml");
+            //var name = from nm in xelement1.Elements("Employee")
+            //           where (string)nm.Element("Gender") == "Male"
+            //           select nm;
+            //Console.WriteLine("Details of Male Employees:");
+            //foreach (XElement xEle in name)
+            //{
+            //    Console.WriteLine(xEle);
+            //}
+            //Console.WriteLine("-------------------");
+
+            XElement xelement = XElement.Load(@"D:\Sulakshana\198-Mphasis\C#\LinqToXMLDemo\LinqToXMLDemo\Empdata.xml");
+            var homePhone = from phoneno in xelement.Elements("Employee")
+                            where (string)phoneno.Element("Phone").Attribute("Type") == "Home"
+                            select phoneno;
+            Console.WriteLine("List HomePhone Nos.");
+            foreach (XElement xEle in homePhone)
+            {
+                Console.WriteLine(xEle.Element("Phone").Value);
+            }
 
 
-
-
-
-            //var findcat = (from c in context.Categories
-            //              where c.Id == 9
-            //              select c).Single();
-
-
-            //findcat.Catname = "computer Accessories";
-            //findcat.Description = "cables,mouse etc";
-            //context.SubmitChanges();
-            //Console.WriteLine("Updated");
-
-
-
-
-
-            //Category c = new Category();
-            //c.Catname = "Lunch";
-            //c.Description = "Lunch";
-            //context.Categories.InsertOnSubmit(c);
-            //context.SubmitChanges();
             Console.Read();
-
-
+           
         }
     }
 }
