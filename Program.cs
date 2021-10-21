@@ -11,6 +11,17 @@ namespace LinqToXMLDemo
     {
         static void Main(string[] args)
         {
+
+            //DataSet1TableAdapters.CategoriesTableAdapter da = new DataSet1TableAdapters.CategoriesTableAdapter();
+            //DataSet1.CategoriesDataTable dt = da.GetData();
+            //dt.WriteXml("categoriesData.xml");
+
+            //DataSet1TableAdapters.ProductsTableAdapter da = new DataSet1TableAdapters.ProductsTableAdapter();
+            //DataSet1.ProductsDataTable dt = da.GetData();
+            //dt.WriteXml("ProductsData.xml");
+
+
+
             //string path = @"D:\Sulakshana\198-Mphasis\C#\LinqToXMLDemo\LinqToXMLDemo\Empdata.xml";
             //XDocument xdocument = XDocument.Load(@"D:\Sulakshana\198-Mphasis\C#\LinqToXMLDemo\LinqToXMLDemo\Empdata.xml");
             //List<XElement> employees = xdocument.Elements().ToList();
@@ -50,15 +61,15 @@ namespace LinqToXMLDemo
             //}
             //Console.WriteLine("-------------------");
 
-            XElement xelement = XElement.Load(@"D:\Sulakshana\198-Mphasis\C#\LinqToXMLDemo\LinqToXMLDemo\Empdata.xml");
-            var homePhone = from phoneno in xelement.Elements("Employee")
-                            where (string)phoneno.Element("Phone").Attribute("Type") == "Home"
-                            select phoneno;
-            Console.WriteLine("List HomePhone Nos.");
-            foreach (XElement xEle in homePhone)
-            {
-                Console.WriteLine(xEle.Element("Phone").Value);
-            }
+            //XElement xelement = XElement.Load(@"D:\Sulakshana\198-Mphasis\C#\LinqToXMLDemo\LinqToXMLDemo\Empdata.xml");
+            //var homePhone = from phoneno in xelement.Elements("Employee")
+            //                where (string)phoneno.Element("Phone").Attribute("Type") == "Home"
+            //                select phoneno;
+            //Console.WriteLine("List HomePhone Nos.");
+            //foreach (XElement xEle in homePhone)
+            //{
+            //    Console.WriteLine(xEle.Element("Phone").Value);
+            //}
 
 
             Console.Read();
