@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -41,6 +41,63 @@ namespace FirstWebApplicationDemo
         {
             txtvalueGreen.Text = ddlState.SelectedValue;
             txtTextMagenta.Text = ddlState.SelectedItem.Text;
+        }
+        public static Hashtable cart = new Hashtable();
+        protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            cart.Add(ListBox1.SelectedItem.Text, ListBox1.SelectedValue);
+            //ListBox2.Items.Add(cart.)
+        }
+
+        protected void ListBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            //ListBox2.Items.Remove(ListBox2.SelectedValue);
+
+            ListItem li = ListBox2.SelectedItem;
+            ListBox2.Items.Remove(li);
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            //int total = 0;
+
+
+            //for (int i = 0; i < ListBox2.Items.Count; i++)
+            //{
+            //    total = total + Convert.ToInt32(ListBox2.Items[i].Value);
+            //}
+            //txtTotal.Text = total.ToString();
+            int total = 0;
+            IDictionaryEnumerator ie = cart.GetEnumerator();
+            while (ie.MoveNext())
+            {
+                ListItem item = new ListItem();
+                item.Value = ie.Value.ToString();
+                total = Convert.ToInt32(item.Value) + total;
+            }
+            txtTotal.Text = total.ToString();
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            IDictionaryEnumerator ie=cart.GetEnumerator();
+            while (ie.MoveNext())
+            {
+                ListItem item = new ListItem();
+                item.Text = ie.Key.ToString();
+                item.Value = ie.Value.ToString();
+                ListBox2.Items.Add(string.Concat(item.Text,item.Value));
+                
+            }
+            
+            
         }
     }
 }
