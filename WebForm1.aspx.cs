@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace ControlsDemo
+namespace StateMgtDemo
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
@@ -14,39 +14,15 @@ namespace ControlsDemo
 
         }
 
-        protected void Calendar1_SelectionChanged(object sender, EventArgs e)
-        {
-            txtdate.Text = Calendar1.SelectedDate.ToLongDateString();
-
-        }
-
-        protected void rdoMale_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rdoMale.Checked)
-            {
-                txtgender.Text = "Male";
-            }
-        }
-
-        protected void rdofemale_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rdofemale.Checked)
-            {
-                txtgender.Text = "Female";
-            }
-        }
-
-        protected void rdoOther_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rdoOther.Checked)
-            {
-                txtgender.Text = "Other";
-            }
-        }
-
         protected void Button1_Click(object sender, EventArgs e)
         {
-            //Response.Redirect("http://www.google.com");
+            HttpCookie cookie = new HttpCookie("userdata");
+            cookie.Values.Add("username", txtname.Text);
+            cookie.Values.Add("age", txtage.Text);
+            cookie.Values.Add("email", txtemail.Text);
+            cookie.Expires = DateTime.Now.AddMinutes(10);
+            Response.Cookies.Add(cookie);
+
             Response.Redirect("~/WebForm2.aspx");
         }
     }

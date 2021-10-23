@@ -1,88 +1,89 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="ControlsDemo.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="StateMgtDemo.WebForm1" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <style type="text/css">
-        .auto-style1 {
-            width: 100%;
-        }
-        .auto-style2 {
-            width: 393px;
-        }
-        .auto-style3 {
-            margin-left: 0px;
-        }
-    </style>
 </head>
 <body>
-    <form id="form1" runat="server">
+       <form id="form1" runat="server">
         <div>
             <table class="auto-style1">
                 <tr>
-                    <td class="auto-style2">
-                        <asp:Label ID="lblname" runat="server" Text="Enter Name"></asp:Label>
+                    <td class="auto-style2">Enter Name</td>
+                    <td class="auto-style5">
+                        <asp:TextBox ID="txtname" runat="server"></asp:TextBox>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtname" runat="server" CssClass="auto-style3"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtname" ErrorMessage="Name is a required field" ForeColor="#FF3300"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style2">
-                        <asp:Label ID="lblSelectDate" runat="server" Text="Select Date"></asp:Label>
+                    <td class="auto-style7">Enter Age</td>
+                    <td class="auto-style8">
+                        <asp:TextBox ID="txtage" runat="server" TextMode="Number"></asp:TextBox>
                     </td>
-                    <td>
-                        <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="#3366CC" BorderWidth="1px" CellPadding="1" DayNameFormat="Shortest" FirstDayOfWeek="Monday" Font-Names="Verdana" Font-Size="8pt" ForeColor="#003399" Height="200px" NextPrevFormat="FullMonth" OnSelectionChanged="Calendar1_SelectionChanged" Width="220px">
-                            <DayHeaderStyle BackColor="#99CCCC" ForeColor="#336666" Height="1px" />
-                            <NextPrevStyle Font-Size="8pt" ForeColor="#CCCCFF" />
-                            <OtherMonthDayStyle ForeColor="#999999" />
-                            <SelectedDayStyle BackColor="#009999" Font-Bold="True" ForeColor="#CCFF99" />
-                            <SelectorStyle BackColor="#99CCCC" ForeColor="#336666" />
-                            <TitleStyle BackColor="#003399" BorderColor="#3366CC" BorderWidth="1px" Font-Bold="True" Font-Size="10pt" ForeColor="#CCCCFF" Height="25px" />
-                            <TodayDayStyle BackColor="#99CCCC" ForeColor="White" />
-                            <WeekendDayStyle BackColor="#CCCCFF" />
-                        </asp:Calendar>
-                        <asp:TextBox ID="txtdate" runat="server"></asp:TextBox>
-&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style2">
-                        <asp:Label ID="lblgender" runat="server" Text="Select Gender"></asp:Label>
-                    </td>
-                    <td>
-                        <asp:RadioButton ID="rdoMale" runat="server" AutoPostBack="True" GroupName="gendergroup" OnCheckedChanged="rdoMale_CheckedChanged" Text="Male" />
-                        <asp:RadioButton ID="rdofemale" runat="server" AutoPostBack="True" GroupName="gendergroup" OnCheckedChanged="rdofemale_CheckedChanged" Text="Female" />
-                        <asp:RadioButton ID="rdoOther" runat="server" AutoPostBack="True" GroupName="gendergroup" OnCheckedChanged="rdoOther_CheckedChanged" Text="Other" />
+                    <td class="auto-style9">
+                        <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtage" ErrorMessage="Age must be greater than 18 and less than 60" ForeColor="#FF3300" MaximumValue="60" MinimumValue="18" Type="Integer"></asp:RangeValidator>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style2">&nbsp;</td>
+                    <td class="auto-style2">Enter Email</td>
+                    <td class="auto-style5">
+                        <asp:TextBox ID="txtemail" runat="server"></asp:TextBox>
+                    </td>
                     <td>
-                        <asp:TextBox ID="txtgender" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtemail" ErrorMessage=" email address is required" ForeColor="#FF3300"></asp:RequiredFieldValidator>
+&nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtemail" ErrorMessage="Enter valid email" ForeColor="#FF3300" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style2">&nbsp;</td>
-                    <td>
-                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" />
+                    <td class="auto-style7">Enter Web site </td>
+                    <td class="auto-style8">
+                        <asp:TextBox ID="txtwebsite" runat="server"></asp:TextBox>
+                    </td>
+                    <td class="auto-style9">
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtwebsite" ErrorMessage="Enter valid website url" ForeColor="#FF3300" ValidationExpression="http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&amp;=]*)?"></asp:RegularExpressionValidator>
                     </td>
                 </tr>
                 <tr>
-                    <td class="auto-style2">&nbsp;</td>
+                    <td class="auto-style3">Enter Password</td>
+                    <td class="auto-style6">
+                        <asp:TextBox ID="txtpwd" runat="server" ></asp:TextBox>
+                    </td>
+                    <td class="auto-style4">
+                        <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtpwd" ControlToValidate="txtconfirm" ErrorMessage="Passwords must match" ForeColor="#FF3300"></asp:CompareValidator>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">Re-Enter Password</td>
+                    <td class="auto-style5">
+                        <asp:TextBox ID="txtconfirm" runat="server" ></asp:TextBox>
+                    </td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style2">&nbsp;</td>
+                    <td class="auto-style5">&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style2">&nbsp;</td>
+                    <td class="auto-style5">
+                        <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" />
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style2">&nbsp;</td>
+                    <td class="auto-style5">
+                        &nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
             </table>
         </div>
     </form>
+
 </body>
 </html>
