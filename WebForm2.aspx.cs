@@ -32,5 +32,16 @@ namespace ControlsDemo
                     break;
             }
         }
+
+        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+        {
+            if (FileUpload1.HasFile)
+            {
+                string s=FileUpload1.FileName;
+
+                FileUpload1.SaveAs(@"D:\Sulakshana\198-Mphasis\WebAppsDemos\ControlsDemo\ControlsDemo\UploadedDocs\" + s);
+                Response.Write("file Upload succeeded");
+            }
+        }
     }
 }

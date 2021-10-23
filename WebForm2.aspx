@@ -61,6 +61,8 @@
                                 <asp:Label ID="Label3" runat="server" Text="Education Details"></asp:Label>
                                 <br />
                                 <asp:FileUpload ID="FileUpload1" runat="server" />
+                                &nbsp;
+                                <asp:ImageButton ID="ImageButton1" runat="server" AlternateText="Upload Files By clicking this button" Height="51px" ImageUrl="~/bunny1.jpg" OnClick="ImageButton1_Click" Width="77px" />
                                 <br />
                                 <br />
                             </asp:View>
