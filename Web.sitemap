@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode description="" title="Home" url="">
+  <siteMapNode url="~/Login.aspx" title="Login"  description="LoginPage">
+    </siteMapNode>
+    <siteMapNode url="" title="Products"  description="">
+      
+    <siteMapNode url="~/CreateProduct.aspx" 
+                 title="InsertProduct"  description="Create New Product" />
+      <siteMapNode url="~/UpdateProduct.aspx" title="UpdateProduct"  description="Update Product Data" />
+<siteMapNode url="" title="DeleteProduct"  description="Delete Product" />
+    <siteMapNode url="~/ShowAllProducts.aspx" title="ShowProductList"  description="Show All Products" />
+    
+    
+    </siteMapNode>
+    </siteMapNode>
+  
+</siteMap>

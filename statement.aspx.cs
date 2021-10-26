@@ -21,7 +21,7 @@ namespace MasterPagesDemo
             //int i=products.CountProducts();
             //Label2.Text = i.ToString();
 
-            DALayer.CategoryDAL dal = new CategoryDAL();
+            CategoryDAL dal = new CategoryDAL();
             DataTable dt = new DataTable();
             dt=dal.showall();
             GridView1.DataSource = dt;
