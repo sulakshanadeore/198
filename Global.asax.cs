@@ -7,7 +7,7 @@ using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
 
-namespace ServerSideStateMgtDemo
+namespace MasterPagesDemo
 {
     public class Global : HttpApplication
     {
@@ -46,8 +46,8 @@ namespace ServerSideStateMgtDemo
             Session.RemoveAll();//RemoveAt,RemoveAll()
             Session.Abandon();
 
-        }     
-        
+        }
+
         void Application_Error(object sender, EventArgs e)
         {
         }
