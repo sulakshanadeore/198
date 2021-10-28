@@ -1,0 +1,33 @@
+﻿@using SecondMVCAppWithDB.Models
+@{
+    ViewBag.Title = "ShowAllCategoryList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ShowAllCategoryList</h2>
+
+<h2>Category List</h2>
+@Html.ActionLink("Create Category", "Create", "", new { @class = "nav nav-pills" })
+
+<table class="table table-hover">
+    <tr>
+        <th>CategoryID</th>
+        <th>CategoryName</th>
+        <th>Description</th>
+    </tr>
+    @foreach (var item in (IEnumerable<Category>)TempData["catlist"])
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Catname</td>
+            <td>@item.Desc</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", "", new { @class = "nav" })
+                @Html.ActionLink("Delete", "Delete", "", new { @class = "nav" })
+                @Html.ActionLink("Details", "Details", "", new { @class = "nav" })
+            </td>
+        </tr>
+    }
+</table>
+
+
