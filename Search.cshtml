@@ -1,9 +1,16 @@
-﻿
+﻿@using CachingDemo.Models
 @{
     ViewBag.Title = "Search";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div>
+    <h1>
+        @Html.Partial("_showAllEmps")
+    </h1>
+</div>
 
+
+<hr/>
 <h2>Search</h2>
 
 <form method="post">
@@ -11,5 +18,8 @@
     <input type="submit" name="Search" value="Search" />
     <h1>@ViewBag.id</h1>
     <h1>@ViewBag.name</h1>
-
+    <h2>@ViewBag.g</h2>
+    <h2>@ViewBag.g1</h2>
 </form>
+<hr/>
+

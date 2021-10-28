@@ -26,7 +26,7 @@ namespace CachingDemo.Controllers
 
         [HttpPost]
         //[OutputCache(Duration = 10, VaryByParam = "id")]
-        [OutputCache(CacheProfile ="c2")]
+        [OutputCache(CacheProfile  ="c2")]
         public ActionResult Search(int id)
         {
             var m = (from a in emps
@@ -34,7 +34,32 @@ namespace CachingDemo.Controllers
                     select a).FirstOrDefault();
             ViewBag.id = m.empid;
             ViewBag.name = m.empName;
+                        
+            string s1=Greet();
+            ViewBag.g = s1 + ViewBag.name;
+            string s2 = Welcome();
+            ViewBag.g1 = s2;
             return View();
+        }
+
+        [NonAction]
+       public string Greet()
+        {
+            string s = "Hello";
+            return s;
+            
+            
+        
+        }
+
+        [NonAction]
+        public string Welcome()
+        {
+            string s = "Welcome";
+            return s;
+
+
+
         }
 
 

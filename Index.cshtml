@@ -1,13 +1,4 @@
-﻿
-@{
-    ViewBag.Title = "Index";
-}
-
-<h2>Index</h2>
-<h1>@ViewBag.mydata</h1>
-<form method="post">
-    <input type="text" name="id" value="@ViewBag.mydata" />
-    <input type="submit" name="Index" value="click here" />
-
-</form>
-
+﻿<h1>Index</h1>
+<hr/>
+@Html.Action("CallThis")
+@*@Html.RenderAction("CallThis")*@
