@@ -5,7 +5,7 @@
 }
 <div>
     <h1>
-        @Html.Partial("_showAllEmps")
+        @Html.Partial("_showAllEmps",(IEnumerable<Emp>)@ViewBag.emplist)
     </h1>
 </div>
 

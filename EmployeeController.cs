@@ -21,6 +21,7 @@ namespace CachingDemo.Controllers
         // GET: Employee
         public ActionResult Search()
         {
+            ViewBag.emplist = emps;
             return View();
         }
 

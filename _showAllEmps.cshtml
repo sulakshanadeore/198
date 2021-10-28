@@ -1,8 +1,25 @@
-﻿<div>
+﻿@using CachingDemo.Models
+<div>
     <nav>
-        @Html.ActionLink("Index", "Index","Home")
-        @Html.ActionLink("About", "About","Home")
+        @Html.ActionLink("Index", "Index", "Home")
+        @Html.ActionLink("About", "About", "Home")
 
     </nav>
 </div>
+<table>
+    <tr>
+        <td>Empid</td>
+        <td>Empname</td>
+    </tr>
+
+    @foreach (var item in ViewBag.emplist)
+    {
+    <tr>
+        <td>@item.empid</td>
+        <td>@item.empName</td>
+    </tr>
+            }
+        
+    </table>
+
 
