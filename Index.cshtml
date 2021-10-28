@@ -1,33 +1,13 @@
-﻿@using SecondMVCAppWithDB.Models
+﻿
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Category List</h2>
-@Html.ActionLink("Create Category","Create","",new {@class="nav nav-pills"})
+<h2>Index</h2>
+<h1>@ViewBag.mydata</h1>
+<form method="post">
+    <input type="text" name="id" value="@ViewBag.mydata" />
+    <input type="submit" name="Index" value="click here" />
 
-<table class="table table-hover">
-    <tr>
-        <th>CategoryID</th>
-        <th>CategoryName</th>
-        <th>Description</th>
-     </tr>
-    @foreach (var item in ViewBag.catlist)
-    {
-        
-    <tr>
-        <td>@item.Id</td>
-        <td>@item.Catname</td>
-        <td>@item.Desc</td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new {id=item.Id } )
-            @Html.ActionLink("Delete", "Delete",new {id=item.Id })
-            @Html.ActionLink("Details", "Details", new { id = item.Id })
-        </td>
-
-    </tr>
-    }
-</table>
-
+</form>
 

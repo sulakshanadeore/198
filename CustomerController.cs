@@ -3,54 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using FirstMVCApp.Models;
-namespace FirstMVCApp.Controllers
+
+namespace CachingDemo.Controllers
 {
     public class CustomerController : Controller
     {
         // GET: Customer
-        public ActionResult Index()
-        {
-            return View();
-        }
+        //[OutputCache(Duration=10,VaryByParam ="val")]
+        //public ActionResult Index(int val)
+        //{
 
-        public ContentResult Greet()
-        {
-
-            return Content("Good morning");
-        }
+        //    ViewBag.mydata = val;
+        //    return View();
+        //}
 
 
-        public ActionResult CreateCustomer()
-        {
-
-            return View();
-        }
-        [HttpGet]
-        public ActionResult Login()
+        [OutputCache(Duration = 10, VaryByParam = "None")]
+       // [HttpPost]
+        public ActionResult Index(string id)
         {
 
-            return View();
+            return Content("U entered = " + id);
         }
-        [HttpPost]
-        public ActionResult Login(int userid,string pwd)
-        {
-            CustLogin cust = new CustLogin();
-            cust.Userid = userid;
-            cust.Password = pwd;
-            AllLogic a = new AllLogic();
-            bool ans=a.Validatecustomer(cust.Userid, cust.Password);
-            if (ans)
-            {
-                return RedirectToAction("Greet");
-            }
-            else
-            {
 
-                string s = "Pls check ur userid/password";
-                return Content(s);
-            }
-        }
+
 
     }
 }
