@@ -3,28 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
-namespace CachingDemo.Controllers
+using TransactionsDemo;
+namespace WebApplication1.Controllers
 {
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
-            return View();
-        }
-
-        [ChildActionOnly]
-        public ActionResult CallThis()
-        {
-            ViewBag.msg = "Call received....";
-            return View();
+            Products p = new Products();
+            p.ShowProducts();
+            return Content("Done");
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            Products p = new Products();
+            p.WorkWithScope();
+            return Content("Done");
         }
 
         public ActionResult Contact()
