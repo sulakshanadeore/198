@@ -1,0 +1,69 @@
+1) SqlTransaction-----  System.Data.SqlClient;
+
+ u need work with opening & closing
+1 database--1 server
+
+
+------------------------------------
+2)TransactionScope---- System.Transactions
+m server--m databases---- open or close the connections for the respective database though on differnet servers
+
+
+
+============================================================
+SqlConnection sqlConnection db = new SqlConnection("ConnectionString");    
+SqlTransaction transaction;    
+  
+sqlConnection.Open();    
+transaction = sqlConnection.BeginTransaction();    
+try     
+{    
+   new SqlCommand("INSERT Qwery1", sqlConnection, transaction)    
+      .ExecuteNonQuery();    
+   new SqlCommand("INSERT Qwery2 ", sqlConnection, transaction)    
+      .ExecuteNonQuery();    
+   new SqlCommand("INSERT Qwery3 ", sqlConnection, transaction)    
+      .ExecuteNonQuery();    
+   transaction.Commit();    
+}     
+catch (SqlException sqlError)     
+{    
+   transaction.Rollback();    
+}    
+sqlConnection.Close(); 
+---------------------------
+
+You can easily maintain one transaction for multiple databases or a single database with multiple connectionstrings, using TransactionScope.
+
+When you use TransactionScope there is no need to close any Database connections in the middle.
+
+using (TransactionScope transactionScope = new TransactionScope())
+{
+
+      try
+
+      {
+
+           method1() // Oracle DML operation
+
+           method2() // Sql DML operation
+
+           method3() // Oracle DML operation
+
+           // transactionScope.complete()
+
+           // transactionScope.Dispose();
+
+      }
+
+      catch (TransactionException ex)
+
+      {
+
+          transactionScope.Dispose();
+
+          MessageBox.Show("Transaction Exception Occured");
+
+      }
+
+}
