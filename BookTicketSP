@@ -1,0 +1,44 @@
+USE [Shopping]
+GO
+/****** Object:  StoredProcedure [dbo].[BookTicket]    Script Date: 02-Nov-21 1:32:37 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[BookTicket]
+	@passid int,
+	@passname varchar(50),
+	@age int,
+	@flightid int,
+	@ticketno int output
+AS
+declare
+@tno int,
+@vacant_seats int
+begin
+select @vacant_seats=vacantseats from FlightBooking where FlightID=@flightid
+if(@vacant_seats >0)
+begin
+select @tno=isnull(max(ticketno),0) +1 from passengers
+where flightid=@flightid;
+if(@tno=1)
+begin
+select @tno=concat(@flightid,'00',@tno)
+select @ticketno=@tno
+
+	Insert into Passengers values (@passid,@passname,@age,@flightid,@tno);
+	end
+	else
+	begin
+	select @tno=max(ticketno) +1 from passengers
+where flightid=@flightid;
+
+
+Insert into Passengers values (@passid,@passname,@age,@flightid,@tno);
+
+	end
+	select @ticketno=@tno
+end
+
+
+end
