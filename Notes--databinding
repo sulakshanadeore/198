@@ -1,0 +1,30 @@
+1){{}}---->flower brackets---- string interpolation 
+print the output from the .ts file to html file
+one way data binding
+from component.ts to component.html
+
+------------------------------------------
+2) empid:number=200
+Property binding--- one way
+<input [value]="empid"/>
+------------------------
+3) event binding
+one way ie from .ts to .html
+saveclick($event:any)
+{
+}
+
+html----> <button (click)="saveclick($event)"/>Save</button>
+--------------------------------------------------------
+
+Two way data binding
+combination of eventbinding and property binding using ngModel
+[(ngModel)]----banana bracket
+
+.ts---> declare properties in the class 
+.html----> [(ngModel)]="propname" 
+
+saveClick($event:any)
+{
+cl(this.propname)
+}
