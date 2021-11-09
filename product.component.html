@@ -1,0 +1,14 @@
+<form>
+    <fieldset>
+        <label>Product ID</label>
+        <input type="number" [(ngModel)]="productID" id="prodid" name="prodid"/>
+        <br/>
+        <label>Product Name</label>
+        <input type="text" [(ngModel)]="productName" id="prodname" name="prodname"/>
+        <br/>
+        <label>Product Price</label>
+        <input type="number" [(ngModel)]="productPrice" id="price" name="price"/>
+        <br/>
+        <input type="submit" value="Save" (click)="Save($event)"/>
+    </fieldset>
+</form>

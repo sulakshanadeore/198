@@ -1,0 +1,18 @@
+<p>emp works!</p>
+<form>
+    <label>Enter Empid</label>
+    <input type="number" id="empid"  [value]="empid" name="empid"/>
+    <br/>
+    <label>Enter Empname</label>
+    <input type="text" id="ename" [value]="ename" name="ename"/>
+    <br/>
+    <label>Enter Deptno</label>
+    <input type="number" id="deptno" [value]="deptno" name="deptno"/>
+        <br/>
+<img [src]="imgurl" height="100px" width="100px"/>&nbsp;
+
+<img [src]="personimage" height="100px" width="100px"/>
+<!-- <button (click)="saveClick($event)">save</button> -->
+<input type="submit" value="Save" (click)="saveClick($event)"/>
+</form>
+
