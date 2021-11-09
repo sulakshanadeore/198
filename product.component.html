@@ -1,4 +1,39 @@
-<form>
+<table>
+    <tr *ngFor="let item of nos">
+        <td>{{item}}</td>
+    </tr>
+</table>
+<hr/>
+<table>
+    <tr>
+    <td>ProductID</td>
+    <td>ProductNaem</td>
+    <td>Price</td>
+</tr>
+<tr *ngFor="let pdata of products">
+    <td>{{pdata.id}}</td>
+    <td>{{pdata.name}}</td>
+    <td>{{pdata.price}}</td>
+</tr>
+</table>
+<hr/>
+<table>
+    <tr>
+    <td>Pid</td>
+    <td>pname</td>
+    <td>price</td>
+</tr>
+<tr *ngFor="let pdata of plist">
+<td>{{pdata.prodid}}</td>
+<td>{{pdata.prodname}}</td>
+<td>{{pdata.prodprice}}</td>
+
+</tr>
+</table>
+
+
+<hr/>
+ <form>
     <fieldset>
         <label>Product ID</label>
         <input type="number" [(ngModel)]="productID" id="prodid" name="prodid"/>
@@ -11,4 +46,4 @@
         <br/>
         <input type="submit" value="Save" (click)="Save($event)"/>
     </fieldset>
-</form>
+</form> 
