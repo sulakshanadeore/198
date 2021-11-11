@@ -1,0 +1,30 @@
+<form [formGroup]="contactForm" class="form-group"  (ngSubmit)="SubmitData()">
+    <fieldset>
+        <legend>contact form</legend>
+<label id="fname" class="form-group" >Enter FirstName:</label>
+<input type="text" size="30" formControlName="firstname"  name="finame" id="finame"/>
+<br/>
+<label class="form-group" >Enter LastName:</label>
+<input type="text" size="30" formControlName="lastname" name="finame" id="finame"/>
+<br/>
+<label class="form-group" >Enter Gender:</label>
+<input type="text" class="form-control form-control-sm" formControlName="gender" name="finame" id="finame"/>
+<br/>
+
+
+<label class="form-group" >Enter MobileNumber:</label>
+<input type="number" class="form-control form-control-sm" formControlName="mobileno" name="finame" id="finame"/>
+<br/>
+<label class="form-group" >Enter Email:</label>
+<input type="email" class="form-control form-control-sm" formControlName="email" name="finame" id="finame"/>
+<br/>
+<label class="form-group">Enter Marital Status:</label>
+<input type="text" class="form-control form-control-sm" formControlName="isMarried" name="finame" id="finame"/>
+<br/>
+<label class="form-group" >Enter Country:</label>
+<input type="text" class="form-control form-control-sm"  formControlName="country" name="finame" id="finame"/>
+<br/>
+<input type="submit" class="btn btn-primary" name="ab" value="Submit Contact Details"/>
+
+</fieldset>
+</form>

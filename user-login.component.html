@@ -1,0 +1,14 @@
+
+<form #loginfrm="ngForm" class="form-group" (ngSubmit)="ValidateUser(loginfrm.value)">
+    
+    <fieldset>
+        <legend>Login Form</legend>
+    <label class="form-group">Enter UserID</label>
+    <input type="text" class="form-control" [(ngModel)]="user.userid" id="uid" name="uid"/>
+    <br/>
+    <label class="form-group">Enter Password</label>
+    <input type="password" class="form-control" [(ngModel)]="user.pwd" id="pwd" name="pwd"/>
+    <br/>
+    <input type="submit" class="btn btn-primary" name="vu"/>
+</fieldset>
+</form>
